@@ -1,0 +1,16 @@
+<!-- <div class="card clearfix product-cards">
+  <img src="/w3images/jeans3.jpg" alt="Denim Jeans" style="width:100%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$19.99</p>
+  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p><button>Add to Cart</button></p>
+</div> -->
+
+<div class="clearfix product-cards" *ngIf="$index % 3 == 0"></div>
+<div class="col-sm-4 product-card">
+  <img src="../../assets/img/products/image1.jpg" alt="Denim Jeans" style="width:100%">
+  <h4 align="center">{{product.title | uppercase}}</h4>
+  <h5 class="price" align="center">$19.99</h5>
+  <p align="center">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p align="center"><button>Add to Cart</button></p>
+</div>

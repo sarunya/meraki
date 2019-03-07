@@ -5,3 +5,9 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+title {
+    display:block;
+    color : #04616f;
+    font-family: "Comic Sans MS"
+}

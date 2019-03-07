@@ -1,0 +1,17 @@
+.product-card {
+    /* margin : 0.5%; */
+    margin: 1%;
+    width: 31%;
+    padding: 0%;
+    height: 500px;
+    border: 3px solid #04616f;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px 0 #04616f, 0 6px 20px 0 #04616f;
+}
+
+
+.product-card img {
+    max-height: 320px;
+}

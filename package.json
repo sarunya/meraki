@@ -8,7 +8,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod"
+  },
+  "engines": {
+    "node": "8.11.1",
+    "npm": "6.4.1"
   },
   "private": true,
   "dependencies": {
@@ -20,10 +25,28 @@
     "@angular/http": "^6.0.0-rc.1",
     "@angular/platform-browser": "^6.0.0-rc.1",
     "@angular/platform-browser-dynamic": "^6.0.0-rc.1",
+    "@angular/material": "latest",
     "@angular/router": "^6.0.0-rc.1",
+    "express": "^4.16.4",
+    "typescript": "~2.7.2",
     "core-js": "^2.5.4",
     "rxjs": "6.0.0",
-    "zone.js": "^0.8.24"
+    "zone.js": "^0.8.24",
+    "co": "^4.6.0",
+    "cors": "^2.8.4",
+    "co-lodash": "0.0.4",
+    "got": "^7.1.0",
+    "lodash": "^4.17.10",
+    "pg": "^6.1.2",
+    "md5": "^2.2.1",
+    "pg-promise": "^6.4.0",
+    "string-format": "^0.5.0",
+    "short-id": "^0.1.0-1",
+    "nconf": "^0.10.0",
+    "uuid": "^2.0.3",
+    "body-parser": "^1.7.0",
+    "ejs": "^1.0.0",
+    "express-session": "^1.7.6"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^6.0.0-rc.1",

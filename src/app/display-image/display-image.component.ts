@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-display-image',
+  templateUrl: './display-image.component.html',
+  styleUrls: ['./display-image.component.css']
 })
-export class AppComponent {
+export class DisplayImageComponent implements OnInit {
   // title = 'Meraki';
   // menuOptions = [1, 2, 3];
 
@@ -43,3 +43,4 @@ export class AppComponent {
 
   }
 }
+
