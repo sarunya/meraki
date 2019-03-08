@@ -1,0 +1,33 @@
+.title {
+  background-color: rgb(193, 243, 239);
+  border-bottom: 1px solid #04616f;
+  box-shadow: 0 4px 8px 0 #04616f, 0 6px 20px 0 #04616f;
+}
+
+.cartlist {
+  background-color: rgb(193, 243, 239);
+  height: 100%;
+  box-shadow: 0 4px 8px 0 #04616f, 0 6px 20px 0 #04616f;
+}
+
+ul {
+  padding-top: 3%;
+  padding-left: 15%;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  width: 20%;
+  display: block;
+  color: #04616f;
+  font-family: "Comic Sans MS";
+  font-size: 20px;
+  text-decoration-line: underline;
+
+}
+
+li.product {
+  width: 50%;
+}

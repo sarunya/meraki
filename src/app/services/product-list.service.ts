@@ -1,5 +1,5 @@
-import { AppSettings } from './../AppSettings';
-import { HttpUtility } from './../../utils/http-util';
+import { AppSettings } from '../AppSettings';
+import { HttpUtility } from '../../utils/http-util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -15,6 +15,10 @@ export class ProductListService {
 
   public getProducts() {
     return this.httpUtil.getHttpCall(this.productPaths.get);
+  }
+
+  public getProductById(id : Text) {
+    return this.httpUtil.getHttpCall(this.productPaths.get+"/"+id);
   }
 
 }

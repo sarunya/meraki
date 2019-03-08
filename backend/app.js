@@ -43,6 +43,10 @@ function start() {
     return productRouteHandler.getProducts(req, res);
   })
 
+  app.get('/products/:id', (req, res) => {
+    return productRouteHandler.getProductById(req, res);
+  })
+
   app.use(express.static(path.join(__dirname, 'web')));
   var port = process.env.PORT || 1337;
   app.listen(port);

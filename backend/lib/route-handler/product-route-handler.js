@@ -1,30 +1,8 @@
-const JsonShareService = require('../service/json-share');
+const ProductService = require('../service/product-service');
 
 class ProductRouteHandler {
     constructor(dependencies) {
         this.dependencies = dependencies;
-    }
-
-    async createJsonShare(request, reply) {
-        let me = this;
-        try {
-            let service = new JsonShareService(me.dependencies, me.config, request);
-            let result = await service.createJsonShare(request.body);
-            reply.send(result);
-        } catch (error) {
-            me._replyError(reply, error); 
-        }
-    }
-
-    async createArrayShare(request, reply) {
-        let me = this;
-        try {
-            let service = new JsonShareService(me.dependencies, me.config, request);
-            let result = await service.createArrayShare(request.body);
-            reply.send(result);
-        } catch (error) {
-            me._replyError(reply, error); 
-        }
     }
 
     /**
@@ -36,50 +14,25 @@ class ProductRouteHandler {
         let me = this;
         let result = null;
         try {
-            // let service = new JsonShareService(me.dependencies, me.config, request);
-            // result = await service.getJsonShare(request.query.id);
-            result = [{
-                id: "id1",
-                title: "title",
-                description: "description",
-                rating: 3,
-                image: "image",
-            },{
-                id: "id2",
-                title: "title2",
-                description: "description2",
-                rating: 3,
-                image: "image2",
-            },{
-                id: "id3",
-                title: "title3",
-                description: "description3",
-                rating: 3,
-                image: "image2",
-            },{
-                id: "id4",
-                title: "title4",
-                description: "description4",
-                rating: 3,
-                image: "image2",
-            }]
+            let service = new ProductService(me.dependencies, me.config, request);
+            result = await service.getAllProducts();
             reply.send(result);
         } catch (error) {
-            result = {error:error};
-            reply.send(result);
+            console.log(error);
+            me._replyError(reply, result);
         }
     }
 
-    async getArrayShareData(request, reply) {
+    async getProductById(request, reply) {
         let me = this;
         let result = null;
         try {
-            let service = new JsonShareService(me.dependencies, me.config, request);
-            result = await service.getArrayShare(request.query.id);
+            let service = new ProductService(me.dependencies, me.config, request);
+            result = await service.getProductById(request.params.id);
             reply.send(result);
         } catch (error) {
-            result = {error:error};
-            reply.send(result);
+            console.log(error);
+            me._replyError(reply, error);
         }
     }
 

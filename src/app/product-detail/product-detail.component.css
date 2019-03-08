@@ -1,0 +1,49 @@
+/* .singleproduct{
+    padding-left: 5-%;
+} */
+
+.basicinfo {
+    padding-left: 52%;
+}
+
+.productdetails .image {
+  padding-right: 2%;
+  width: 50%;
+  margin: 0%;
+  float: left;
+  min-height: 100%;
+}
+
+.producttitle{
+  color: #04616f;
+  font-family: "Comic Sans MS";
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.item_price {
+    font-size: 20px;
+}
+
+
+.btn-primary {
+  background-color: #04616f;
+  size: 3%;
+}
+
+.star {
+  font-size: 2rem;
+  color: #b0c4de;
+}
+
+.filled {
+  color: #1e90ff;
+}
+
+.bad {
+  color: #b0c4de;
+}
+
+.filled.bad {
+  color: #1e90ff;
+}
