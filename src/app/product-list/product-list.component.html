@@ -1,5 +1,5 @@
 <div class="row product-list">
-  <a *ngFor="let product of products; index as i;" routerLink="/products/{{product.id}}">
+  <a class="product-cart-a" *ngFor="let product of products; index as i;" >  <!-- //routerLink="/products/{{product.id}}"-->
     <div class="clearfix product-cards" *ngIf="$index % 3 == 0"></div>
     <app-product-card [product]="product">
     </app-product-card>

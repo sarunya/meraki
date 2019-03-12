@@ -22,4 +22,13 @@ sqlFileHash[Constants.TableNames.Product] = {
   getSkusByCategory: load('./product/getskusbycategory.sql')
 };
 
+sqlFileHash[Constants.TableNames.Cart] = {
+  insert: load('./cart/insert.sql'),
+  update: load('./cart/update.sql'),
+  getByCartId: load('./cart/getbycartid.sql'),
+  getActiveCartByEmail: load('./cart/getactivecartbyemail.sql'),
+  getOrdersByEmail: load('./cart/getordersbyemail.sql'),
+  getCartsByStatus: load('./cart/getcartsbystatus.sql')
+};
+
 module.exports = sqlFileHash;

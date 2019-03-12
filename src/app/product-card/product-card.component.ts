@@ -13,4 +13,8 @@ export class ProductCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  addProductToCart(product) {
+    console.log(JSON.stringify(product, null, 10));
+  }
+
 }
