@@ -1,13 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
-    height: auto;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  height: auto;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 title {
-    display:block;
-    color : #04616f;
-    font-family: "Comic Sans MS"
+  display: block;
+  color: #04616f;
+  font-family: "Comic Sans MS"
+}
+
+
+.abcRioButton.abcRioButtonLightBlue {
+  border-radius: 50%;
+  background: #86d4e0
 }

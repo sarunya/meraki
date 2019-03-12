@@ -14,4 +14,12 @@ sqlFileHash[Constants.TableNames.JsonShareData] = {
   filterArrayByHash: load('./json-share/filterarraybyhash.sql')
 };
 
+sqlFileHash[Constants.TableNames.Product] = {
+  insert: load('./product/insert.sql'),
+  update: load('./product/update.sql'),
+  getByProductId: load('./product/getbyproductid.sql'),
+  getAllCategories: load('./product/getallcategories.sql'),
+  getSkusByCategory: load('./product/getskusbycategory.sql')
+};
+
 module.exports = sqlFileHash;

@@ -28,6 +28,7 @@
     "@angular/material": "latest",
     "@angular/router": "^6.0.0-rc.1",
     "@ng-bootstrap/ng-bootstrap": "^4.1.0",
+    "angular-6-social-login-v2": "^1.0.5",
     "express": "^4.16.4",
     "typescript": "~2.7.2",
     "core-js": "^2.5.4",

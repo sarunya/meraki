@@ -1,12 +1,12 @@
 'use strict';
 
 class PGPure {
+
     constructor(dependencies) {
-        this.pgp = dependencies.pgpmeraki
+        this.pgp = dependencies.pgpmeraki;
     }
 
     async insert(sqlCmd, values, tx = this.pgp) {
-        const me = this;
         try {
             let result = await tx.one(sqlCmd, values);
             return result;
@@ -16,7 +16,6 @@ class PGPure {
     }
 
     async update(sqlCmd, values, tx = this.pgp) {
-        const me = this;
         try {
             let result = await tx.one(sqlCmd, values);
             return result;
@@ -25,8 +24,7 @@ class PGPure {
         }
     }
 
-    async filter(sqlCmd, values, tx = this.pgp) {
-        const me = this;
+    async filter(sqlCmd, values = [], tx = this.pgp) {
         try {
             let result = await tx.any(sqlCmd, values);
             return (result)?result:null;
@@ -36,7 +34,6 @@ class PGPure {
     }
 
     async count(sqlCmd, values, tx = this.pgp) {
-        const me = this;
         try {
             let result = await tx.one(sqlCmd, values);
             return (result)?result:null;
@@ -46,7 +43,6 @@ class PGPure {
     }
 
     async delete(sqlCmd, values, tx = this.pgp) {
-        const me = this;
         try {
             let result = await tx.any(sqlCmd, values);
             return result;
@@ -54,7 +50,6 @@ class PGPure {
             throw err;
         }
     }
-
 }
 
 module.exports = PGPure;

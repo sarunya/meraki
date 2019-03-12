@@ -1,0 +1,1 @@
+INSERT INTO product (productid, data, created_date, modified_date) VALUES ($1, $2, now(), now()) returning id;

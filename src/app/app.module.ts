@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { HeaderTopComponent } from './header-top/header-top.component';
@@ -15,12 +16,11 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch:"full"},
-  {path: 'home', component: DisplayImageComponent },
-  {path: 'products/:id', component: ProductDetailComponent },
-  {path: 'cart', component: CartItemComponent }
+  { path: '', redirectTo: '/home', pathMatch: "full" },
+  { path: 'home', component: DisplayImageComponent },
+  { path: 'products/:id', component: ProductDetailComponent },
+  { path: 'cart', component: CartListComponent }
 ];
-
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
-  
+
   ],
   providers: [],
   bootstrap: [AppComponent] //[AppComponent, HeaderTopComponent, ProductListComponent]

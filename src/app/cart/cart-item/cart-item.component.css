@@ -101,6 +101,10 @@ main {
   /* width: 960px; */
 }
 
+img {
+  max-height: 100px;
+}
+
 .basket,
 aside {
   padding: 0 1rem;

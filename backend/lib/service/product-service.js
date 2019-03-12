@@ -1,8 +1,10 @@
-const _ = require("co-lodash");
+const _ = require("co-lodash"),
+ProductAccessor = require("../data-access/product-accessor");
 
 class ProductService {
 
   constructor(dependencies) {
+    this.productAccessor = new ProductAccessor(dependencies);
     this.products = [{
       id: "id1",
       title: "title",
