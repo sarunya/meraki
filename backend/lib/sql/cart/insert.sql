@@ -1,1 +1,1 @@
-INSERT INTO cart (cartid, data, created_date, modified_date) VALUES ($1, $2, now(), now()) returning data;
+INSERT INTO cart (id, data, created_date, modified_date) VALUES ($1, $2, now(), now()) returning data;

@@ -1,3 +1,3 @@
 SELECT data
 FROM cart
-WHERE (cartid=$1);
+WHERE (id=$1);

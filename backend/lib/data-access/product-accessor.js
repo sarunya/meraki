@@ -1,5 +1,5 @@
 const
-    Pg2 = require('../postgres/posty2'),
+    Pg2 = require('../utils/posty2'),
     baseSqlCommands = require('../sql/sql-files'),
     Constants = require('../common/constants');
 

@@ -13,7 +13,7 @@ create table pricing (
 )
 
 create table cart (
-    id  guid,
+    id  uuid,
     data jsonb,
     created_date date default now(),
     modified_date date default now()

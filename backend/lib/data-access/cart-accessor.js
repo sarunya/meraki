@@ -1,5 +1,5 @@
 const
-  Pg2 = require('../postgres/posty2'),
+  Pg2 = require('../utils/posty2'),
   baseSqlCommands = require('../sql/sql-files'),
   Constants = require('../common/constants');
 
@@ -39,32 +39,38 @@ class CartAccessor extends Pg2 {
   }
 
   async getActiveCartByEmail(email) {
+    const me = this;
     let result = await me.filter(me.baseUserCommands.getActiveCartByEmail, [email]);
     return result;
   }
 
   async getCartsByStatus(status) {
+    const me = this;
     let result = await me.filter(me.baseUserCommands.getCartsByStatus, [status]);
     return result;
   }
 
   async getByCartId(cartId) {
+    const me = this;
     let result = await me.filter(me.baseUserCommands.getByCartId, [cartId]);
     return result[0];
   }
 
   async getOrdersByEmail(email) {
+    const me = this;
     let result = await me.filter(me.baseUserCommands.getOrdersByEmail, [email]);
     return result[0];
   }
 
   async save(data) {
-    let id = data.cart_id;
+    const me = this;
+    let id = data.id;
     return await me.insert(me.baseUserCommands.insert, [id, data]);
   }
 
   async update(data) {
-    let id = data.cart_id;
+    const me = this;
+    let id = data.id;
     return await me.update(me.baseUserCommands.update, [id, data]);
   }
 

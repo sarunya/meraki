@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CookieService } from 'ngx-cookie-service';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { DisplayImageComponent } from './display-image/display-image.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CartListComponent } from './cart/cart-list/cart-list.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import {Globals} from './globals';
 
 
 const appRoutes: Routes = [
@@ -43,7 +45,7 @@ const appRoutes: Routes = [
     )
 
   ],
-  providers: [],
+  providers: [Globals, CookieService],
   bootstrap: [AppComponent] //[AppComponent, HeaderTopComponent, ProductListComponent]
 })
 export class AppModule { }

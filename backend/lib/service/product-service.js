@@ -1,5 +1,5 @@
 const _ = require("co-lodash"),
-ProductAccessor = require("../data-access/product-accessor");
+  ProductAccessor = require("../data-access/product-accessor");
 
 class ProductService {
 
@@ -11,24 +11,28 @@ class ProductService {
       description: "description",
       rating: 3,
       image: "image",
+      unit_price : 50
     }, {
       id: "id2",
       title: "title2",
       description: "description2",
       rating: 3,
       image: "image2",
+      unit_price : 50
     }, {
       id: "id3",
       title: "title3",
       description: "description3",
       rating: 3,
       image: "image2",
+      unit_price : 50
     }, {
       id: "id4",
       title: "title4",
       description: "description4",
       rating: 3,
       image: "image2",
+      unit_price : 50
     }]
   }
 
@@ -42,18 +46,39 @@ class ProductService {
     return me.products;
   }
 
-  async getProductById(id) {
+  getProductById(id) {
     const me = this;
-    let result = [];
+    let result = {};
     try {
       result = _.filter(me.products, (product) => {
         return (product.id == id);
       });
-      return result;
+      return result[0];
     } catch (error) {
 
     }
     return result;
+  }
+
+  async getAllProductsByIds(ids) {
+    const me = this;
+    let result = [];
+    let resultPromise = [];
+    try {
+      for (let index = 0; index < ids.length; index++) {
+        let id = ids[index];
+        resultPromise.push(me.getProductById(id));
+        if (resultPromise.length === 5) {
+          let resultOfProducts = await resultPromise;
+          result = _.union(result, resultOfProducts);
+        }
+      }
+      let resultOfProducts = await resultPromise;
+      result = _.union(result, resultOfProducts);
+      return result;
+    } catch (error) {
+      throw error;
+    }
   }
 }
 

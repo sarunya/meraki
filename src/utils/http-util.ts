@@ -7,13 +7,15 @@ import { Injectable } from '@angular/core';
   })
 export class HttpUtility {
 
-    baseUrl: string;
-
     constructor (private http: HttpClient) {
-        this.baseUrl = AppSettings.API_ENDPOINT;
     }
 
-    public getHttpCall(path) {
-        return this.http.get(this.baseUrl+path, {observe:"response"});      
+    public getHttpCall(url) {
+        console.log("url", url);
+        return this.http.get(url, {observe:"response"});      
+    }
+
+    public postCall(url, body, headers) {
+        
     }
 }

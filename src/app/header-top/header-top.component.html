@@ -32,7 +32,14 @@
       <meta name="google-signin-client_id" content="385154495103-onraecvd1g0vpim17slj10uc7057o004.apps.googleusercontent.com">
       <div class="g-signin2 fa" *ngIf="!signIn" data-onsuccess="onSignIn" data-width="40" data-height="40" style="border-radius:50%">
       </div>
-      <a href="#" *ngIf="signIn" class="fa user-img" onclick="signOut();" [ngStyle]="userImageUrl"></a>
+      <div class="dropdown">
+        <a href="#" *ngIf="signIn" class="fa user-img" [ngStyle]="userImageUrl" id="signInBtn"></a>
+        <div class="dropdown-content">
+          <div class="username"><h5 href="#">{{userName}}</h5></div>
+          <a href="#">My Orders</a>
+          <a href="#" onclick="signOut();">Sign Out</a>
+        </div>
+      </div>
     </div>
   </div>
 

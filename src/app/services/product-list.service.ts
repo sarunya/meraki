@@ -8,17 +8,23 @@ import { Injectable } from '@angular/core';
 export class ProductListService {
 
   private productPaths;
+  private baseUrl;
 
   constructor(private httpUtil: HttpUtility) { 
+    this.baseUrl = AppSettings.API_ENDPOINT;
     this.productPaths = AppSettings.PATHS.products;
   }
 
   public getProducts() {
-    return this.httpUtil.getHttpCall(this.productPaths.get);
+    return this.httpUtil.getHttpCall(this.baseUrl+this.productPaths.get);
   }
 
   public getProductById(id : Text) {
-    return this.httpUtil.getHttpCall(this.productPaths.get+"/"+id);
+    return this.httpUtil.getHttpCall(this.baseUrl+this.productPaths.get+"/"+id);
+  }
+
+  public addProductToCart(product) {
+    return this.httpUtil.getHttpCall(this.baseUrl+this.productPaths.get+"/");
   }
 
 }

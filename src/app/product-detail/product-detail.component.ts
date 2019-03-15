@@ -27,4 +27,8 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+  public addProductToCart(product) {
+    console.log(JSON.stringify(product, null, 10));
+  }
+
 }
