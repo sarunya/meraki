@@ -22,7 +22,7 @@ export class ProductDetailComponent implements OnInit {
   getProductDetails(): void {
     this.productId = this.route.snapshot.paramMap.get('id');
     this.productListService.getProductById(this.productId).subscribe((res) => {
-      this.productdetail = res.body[0];
+      this.productdetail = res.body;
       this.currentRate = this.productdetail.rating;
     });
   }

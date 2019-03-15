@@ -106,6 +106,17 @@ class CartService {
       let productDetails = await me.productService.getAllProductsByIds(allProducts);
       productDetails = _.keyBy(productDetails, "id");
 
+      //check and update price for all other products
+      for (let index = 0; index < cart.products.length; index++) {
+        let productInCart = cart.products[index];
+        if(productInCart.product_id === product.product_id) {
+          productDetails[productInCart.product_id].quantity = product.quantity;
+        } else {
+          productDetails[productInCart.product_id].quantity = productInCart.quantity;
+        }
+        me._getProductDetails(productDetails[productInCart.product_id], productInCart);
+      }
+
       if (_.indexOf(productsInCart, product.product_id) != -1) {
         //change quantity of the sku
         me._updateProductQuantity(cart, product, productDetails);
