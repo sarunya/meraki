@@ -1,5 +1,5 @@
 export class AppSettings {
-    public static API_ENDPOINT = 'http://localhost:8080';//'https://merakki.herokuapp.com';
+    public static API_ENDPOINT = 'https://merakki.herokuapp.com';
     public static GOOGLE_API_ENDPOINT = 'https://www.googleapis.com';
     public static PATHS = {
         products :  {
