@@ -16,6 +16,7 @@ import { CartListComponent } from './cart/cart-list/cart-list.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import {Globals} from './globals';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { FormsModule } from '@angular/forms';
 
 
 const appRoutes: Routes = [
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     Ng4LoadingSpinnerModule.forRoot(),
     NgbModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

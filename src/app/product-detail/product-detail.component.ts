@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { CartService } from './../services/cart.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductListService } from '../services/product-list.service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,11 +14,15 @@ export class ProductDetailComponent implements OnInit {
   productdetail;
   productId;
   currentRate = 0; 
+  itemQty = 1;
 
-  constructor(private productListService: ProductListService, private route: ActivatedRoute) { }
+  constructor(private cartService: CartService, private spinService: Ng4LoadingSpinnerService, private productListService: ProductListService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getProductDetails();
+    const me = this;
+    me.itemQty = 1;
+    me.getProductDetails();
+    me.spinService.hide();
   }
 
   getProductDetails(): void {
@@ -27,8 +33,11 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+
   public addProductToCart(product) {
-    console.log(JSON.stringify(product, null, 10));
+    const me = this;
+    me.spinService.show();
+    me.cartService.addProductToCart(product, me.itemQty);
   }
 
 }

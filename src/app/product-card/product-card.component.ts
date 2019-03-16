@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
 import { UserService } from './../services/user.service';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -14,44 +14,48 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 export class ProductCardComponent implements OnInit {
 
   @Input() product;
-  @ViewChild('signInBtn') signInBtn: ElementRef;
+  @Output() loadingInfoEvent = new EventEmitter<boolean>();
   signIn;
+  loadingShow = false;
 
-  constructor(private spinService: Ng4LoadingSpinnerService, private userService: UserService, private cookieService: CookieService, private cartService: CartService,private router: Router) { }
+  constructor(private userService: UserService, private cookieService: CookieService, private cartService: CartService,private router: Router) { }
 
   ngOnInit() {
   }
 
   addProductToCart(product) {
     const me = this;
-    console.log(JSON.stringify(product, null, 10));
-    me.spinService.show();
+    me.sendMessage(true);
     let accessToken = me.cookieService.get("g_access_token");
     if (accessToken) {
-      me.userService.validateUserCall(accessToken).subscribe((res) => {
-        console.log(res.body);
+      //me.userService.validateUserCall(accessToken).subscribe((res) => {
         //else call add to cart api;
         let payload = {
           product_id: product.id,
           quantity: 1
         }
         me.cartService.createCart(payload, accessToken). subscribe((cart) => {
-          console.log(cart.body);
           this.router.navigate(["cartdetail"]);
-          me.spinService.hide();
+          me.sendMessage(false);
         }, (err) => {
-          me.spinService.hide();
+          me.sendMessage(false);
           console.log(err);
         })
-      }, (err) => {
-        me.spinService.hide();
-        console.log(err);
-        me.alterLogin();
-      });
+      // }, (err) => {
+      //   me.sendMessage(false);
+      //   console.log(err);
+      //   me.alterLogin();
+      // });
     } else {
-      me.spinService.hide();
+      me.sendMessage(false);
       me.alterLogin();
     }
+  }
+
+  sendMessage(loadingInfo) {
+    const me = this;
+    me.loadingShow = loadingInfo;
+    me.loadingInfoEvent.emit(me.loadingShow);
   }
 
   alterLogin() {

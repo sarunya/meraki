@@ -13,14 +13,14 @@
         <li class="subtotal">Subtotal</li>
       </ul>
     </div>
-    <app-cart-item *ngFor="let item of cart.products;" [item]="item" [cartId]="cart.id"></app-cart-item>
+    <app-cart-item *ngFor="let item of cart.products;" [item]="item" [cartId]="cart.id" (cartChangeEvent)="receiveCartUpdateEvent($event)"></app-cart-item>
   </div>
   <aside>
     <div class="summary">
       <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
       <div class="summary-subtotal">
         <div class="subtotal-title">Subtotal</div>
-        <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
+        <div class="subtotal-value final-value" id="basket-subtotal">{{cart.totalamount}}</div>
         <div class="summary-promo hide">
           <div class="promo-title">Promotion</div>
           <div class="promo-value final-value" id="basket-promo"></div>
@@ -40,7 +40,7 @@
         <div class="total-value final-value" id="basket-total">130.00</div>
       </div>
       <div class="summary-checkout">
-        <button class="checkout-cta">Go to Secure Checkout</button>
+        <button class="checkout-cta">Checkout</button>
       </div>
     </div>
   </aside>

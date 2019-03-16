@@ -44,6 +44,24 @@ class CartRouteHandler {
         let result = null;
         try {
             let service = new CartService(me.dependencies, me.config, request);
+            result = await service.updateProductInCart(request.params.cartid, request.body, request.headers.g_access_token);
+            reply.send(result);
+        } catch (error) {
+            console.log(error);
+            me._replyError(reply, error);
+        }
+    } 
+
+    /**
+     * Update Products To existing Cart
+     * @param {*} request 
+     * @param {*} reply 
+     */
+    async removeProductFromCart(request, reply) {
+        let me = this;
+        let result = null;
+        try {
+            let service = new CartService(me.dependencies, me.config, request);
             result = await service.addProductToCart(request.params.cartid, request.body, request.headers.g_access_token);
             reply.send(result);
         } catch (error) {

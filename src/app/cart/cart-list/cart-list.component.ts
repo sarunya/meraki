@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { CartItemComponent } from './../cart-item/cart-item.component';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { CartService } from './../../services/cart.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
@@ -11,11 +12,12 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 export class CartListComponent implements OnInit {
 
   cart;
+  @ViewChild(CartItemComponent) cartItemComponent;
   constructor(private spinnerService: Ng4LoadingSpinnerService, private cartService: CartService, private cookieService: CookieService) { }
 
   ngOnInit() {
-    this._getCartDetails();
     this.cart = { products: [] };
+    this._getCartDetails();
   }
 
   private _getCartDetails() {
@@ -31,6 +33,12 @@ export class CartListComponent implements OnInit {
   private _getAccessToken() {
     const me = this;
     return me.cookieService.get("g_access_token");
+  }
+
+  receiveCartUpdateEvent(updatedCart) {
+    const me = this;
+    me.cart = updatedCart;
+    me.ngOnInit();
   }
 
 }

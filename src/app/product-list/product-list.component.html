@@ -1,10 +1,12 @@
 <div class="row product-list">
   <a class="product-cart-a" *ngFor="let product of products; index as i;" >  <!-- //routerLink="/products/{{product.id}}"-->
     <div class="clearfix product-cards" *ngIf="$index % 3 == 0"></div>
-    <app-product-card [product]="product">
+    <app-product-card [product]="product" (loadingInfoEvent)="receiveMessage($event)">
     </app-product-card>
   </a>
 </div>
+
+<ng4-loading-spinner> </ng4-loading-spinner>
 
 
 <!-- <div class="row product-list">

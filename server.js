@@ -58,7 +58,11 @@ function start() {
     return cartRouteHandler.getCart(req, res);
   })
 
-  app.put('/cart/{cartid}/update', (req, res) => {
+  app.post('/cart/:cartid/update', (req, res) => {
+    return cartRouteHandler.updateCartItem(req, res);
+  })
+
+  app.put('/cart/:cartid/remove', (req, res) => {
     return cartRouteHandler.updateCartItem(req, res);
   })
 

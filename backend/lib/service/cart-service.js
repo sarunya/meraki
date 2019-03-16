@@ -31,8 +31,16 @@ class CartService {
       if (!cart) {
         throw "CartNotExistsForEmail";
       }
-      return cart;
+
+      //get updated product details
+      let productsInCart = _.map(cart.products, "product_id");
+      let productDetails = await me.productService.getAllProductsByIds(productsInCart);
+      productDetails = _.keyBy(productDetails, "id");
+      me._updateProductDetailsAndAmount(cart, productDetails);
+
+      return await me._createOrUpdateCart(cart, false);
     } catch (error) {
+      console.log(error);
       throw error;
     }
   }
@@ -53,7 +61,16 @@ class CartService {
   async addProductToCart(cartId, product, accessToken) {
     const me = this;
     try {
-      return me._addProduct(cartId, product, accessToken);
+      return me._updateProductItem(cartId, product, accessToken, "add");
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateProductInCart(cartId, product, accessToken) {
+    const me = this;
+    try {
+      return me._updateProductItem(cartId, product, accessToken, "update");
     } catch (error) {
       throw error;
     }
@@ -101,17 +118,16 @@ class CartService {
         //find existing cart by user email;
         cart = await me.cartAccessor.getActiveCartByEmail(userInfo.email);
       }
-      isNewCart = (!cart)?true:false;
+      isNewCart = (!cart) ? true : false;
       return [cart, userInfo, isNewCart];
     } catch (error) {
       throw error;
     }
   }
 
-  async _addProduct(cartId, product, accessToken) {
+  async _updateProductItem(cartId, product, accessToken, action) {
     const me = this;
     try {
-      console.log(product, accessToken);
       let cart = null;
       let userInfo = null;
       let isNewCart = false;
@@ -121,48 +137,64 @@ class CartService {
       userInfo = existingCartDetails[1];
       isNewCart = existingCartDetails[2];
 
+      //create new cart for the user
       if (!cart) {
-        //create cart for the user
         cart = me._createCart(userInfo);
       }
 
-      //check if cart already contains the product
+      //get all product details
 
       let productsInCart = _.map(cart.products, "product_id");
-
-      let allProducts = _.uniq(_.union(productsInCart, [_.get(product, 'product_id')]));
-      //get all product details
+      let allProducts = _.uniq(_.union(productsInCart, [product.product_id]));
       let productDetails = await me.productService.getAllProductsByIds(allProducts);
       productDetails = _.keyBy(productDetails, "id");
 
-      //check and update price for all other products
-      for (let index = 0; index < cart.products.length; index++) {
-        let productInCart = cart.products[index];
-        if (productInCart.product_id === product.product_id) {
-          productDetails[productInCart.product_id].quantity = product.quantity;
-        } else {
-          productDetails[productInCart.product_id].quantity = productInCart.quantity;
+      if (product.quantity > 0) {
+        productDetails[product.product_id].quantity = product.quantity;
+        productDetails[product.product_id].action = action;
+        if (_.indexOf(productsInCart, product.product_id) < 0) {
+          productDetails[product.product_id].action = "update";
+          cart.products.push(me._populateProductDetails(productDetails[product.product_id]))
         }
-        me._populateProductDetails(productDetails[productInCart.product_id], productInCart);
-      }
-
-      if (_.indexOf(productsInCart, product.product_id)>=0 && product.quantity < 1) {
-        //remove product from the cart
+      } else {
         me._removeProduct(cart, product);
-      } else if(!productDetails[product.product_id].quantity && product.quantity>0) {
-        //addProductDetails
-        let productToBeAdded = productDetails[product.product_id];
-        productToBeAdded.quantity = product.quantity;
-        cart.products.push(me._populateProductDetails(productToBeAdded))
       }
 
+      me._updateProductDetailsAndAmount(cart, productDetails);
+      return await me._createOrUpdateCart(cart, isNewCart);
+
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async _createOrUpdateCart(cart, isNewCart) {
+    try {
+      const me = this;
       let result = null;
       if (isNewCart) {
         result = await me.cartAccessor.save(cart);
       } else {
         result = await me.cartAccessor.updateCart(cart);
       }
-      return result;
+      return result.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  _updateProductDetailsAndAmount(cart, productDetails) {
+    try {
+      const me = this;
+      cart.totalamount = 0;
+      for (let index = 0; index < cart.products.length; index++) {
+        let productInCart = cart.products[index];
+        let actualProduct = productDetails[productInCart.product_id];
+        actualProduct.quantity = (actualProduct.quantity) ? actualProduct.quantity : productInCart.quantity;
+        actualProduct.quantity += (actualProduct.action == "add") ? productInCart.quantity : 0;
+        me._populateProductDetails(productDetails[productInCart.product_id], productInCart);
+        cart.totalamount += parseFloat(productInCart.amount);
+      }
     } catch (error) {
       throw error;
     }
@@ -220,7 +252,8 @@ class CartService {
         products: [],
         is_active: true,
         user: userInfo,
-        status: "Active"
+        status: "Active",
+        totalamount: 0
       }
       return newCart;
     } catch (error) {

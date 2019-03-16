@@ -18,7 +18,7 @@
           sit amet volutpat purus viverra sit amet. Quisque lacinia quam sed tortor interdum, malesuada congue nunc
           ornare.</p>
         <div class="quantity">
-          <p class="qty" style="float:left"> Qty : </p><input min="1" type="number" value="1" class="item_quantity">
+          <p class="qty" style="float:left"> Qty : </p><input min="1" type="number" value="1" class="item_quantity" [(ngModel)]="itemQty">
         </div> <br>
 
         <button type="button" class="btn btn-primary btn-md" (click)="addProductToCart(productdetail)">Add To Cart</button>
@@ -232,3 +232,5 @@
     <!--//related-products-->
   </div>
 </div>
+
+<ng4-loading-spinner> </ng4-loading-spinner>
