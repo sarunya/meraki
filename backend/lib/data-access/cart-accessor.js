@@ -41,7 +41,7 @@ class CartAccessor extends Pg2 {
   async getActiveCartByEmail(email) {
     const me = this;
     let result = await me.filter(me.baseUserCommands.getActiveCartByEmail, [email]);
-    return result;
+    return result[0].data;
   }
 
   async getCartsByStatus(status) {
@@ -68,7 +68,7 @@ class CartAccessor extends Pg2 {
     return await me.insert(me.baseUserCommands.insert, [id, data]);
   }
 
-  async update(data) {
+  async updateCart(data) {
     const me = this;
     let id = data.id;
     return await me.update(me.baseUserCommands.update, [id, data]);

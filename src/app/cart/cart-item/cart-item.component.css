@@ -31,7 +31,7 @@ p {
 }
 
 button {
-	font-size: 2rem;
+	font-size: 1.5rem;
 }
 
 h1 {
@@ -199,7 +199,7 @@ li.subtotal:before {
 
 .remove button {
   background-color: transparent;
-  color: #777;
+  color: #04616f;
   float: none;
   text-decoration: underline;
   text-transform: uppercase;
@@ -240,11 +240,12 @@ li.subtotal:before {
 
 .quantity-field {
   background-color: #ccc;
-  border: 1px solid #03acc5;
+  border: 2px solid #03acc5;
   border-radius: 4px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 2px;
-  width: 3.75rem;
+  width: 4rem;
+  height: 2.5rem;
 }
 
 aside {
@@ -387,6 +388,8 @@ aside {
     text-align: left;
     margin-top: 2rem;
     position: relative;
+    font-size: 1.5rem;
+    color: #04616f;
   }
   .remove button {
     padding: 0;

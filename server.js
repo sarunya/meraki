@@ -7,6 +7,7 @@ var guid = require('uuid');
 var nconf = require('nconf');
 const db = require('./backend/lib/data-access/pgp').db;
 const ProductRouteHandler = require('./backend/lib/route-handler/product-route-handler');
+const CartRouteHandler = require('./backend/lib/route-handler/cart-route-handler');
 const defaultConfig = require('./backend/config/local-config.json');
 
 function start() {
@@ -21,7 +22,8 @@ function start() {
   }
   dependencies.pgpmeraki = db(dependencies.config.postgres.connection_string_meraki, dependencies.config.postgres.poolSize);
 
-  let productRouteHandler = new ProductRouteHandler(dependencies)
+  let productRouteHandler = new ProductRouteHandler(dependencies);
+  let cartRouteHandler = new CartRouteHandler(dependencies);
 
   app.use(express.json())
   app.use(session({
@@ -46,6 +48,18 @@ function start() {
 
   app.get('/products/:id', (req, res) => {
     return productRouteHandler.getProductById(req, res);
+  })
+
+  app.post('/cart', (req, res, next) => {
+    return cartRouteHandler.createCart(req, res);
+  })
+
+  app.get('/cart', (req, res, next) => {
+    return cartRouteHandler.getCart(req, res);
+  })
+
+  app.put('/cart/{cartid}/update', (req, res) => {
+    return cartRouteHandler.updateCartItem(req, res);
   })
 
   app.get('*', function(req,res) {

@@ -9,9 +9,9 @@
 <!-- <div class="clearfix product-cards" *ngIf="$index % 3 == 0"></div> -->
 <div class="col-sm-4 product-card">
 
-  <a routerLink="/products/{{product.id}}">
+  <a routerLink="/productdetail/{{product.id}}">
 
-    <img src="../../assets/img/products/image1.jpg" alt="Denim Jeans" style="width:100%">
+    <img src="{{product.image}}" alt="Denim Jeans" style="width:100%">
     <h4 align="center">{{product.title | uppercase}}</h4>
     <h5 class="price" align="center">$19.99</h5>
     <p align="center">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim

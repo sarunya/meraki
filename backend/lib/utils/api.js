@@ -6,6 +6,7 @@ class Api {
   async get(url, headers, queryParams) {
     const me = this;
     let requestOptions = me._buildRequestOptions(url, "GET", queryParams, headers);
+    console.log(url, queryParams, headers);
     return await me.callRequest(requestOptions);
   }
 

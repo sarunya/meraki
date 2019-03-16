@@ -64,6 +64,10 @@ function start() {
     return cartRouteHandler.createCart(req, res);
   })
 
+  app.get('/cart', (req, res, next) => {
+    return cartRouteHandler.getCart(req, res);
+  })
+
   app.put('/cart/{cartid}/update', (req, res) => {
     return cartRouteHandler.updateCartItem(req, res);
   })

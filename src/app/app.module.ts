@@ -20,8 +20,8 @@ import {Globals} from './globals';
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: "full" },
   { path: 'home', component: DisplayImageComponent },
-  { path: 'products/:id', component: ProductDetailComponent },
-  { path: 'cart', component: CartListComponent }
+  { path: 'productdetail/:id', component: ProductDetailComponent },
+  { path: 'cartdetail', component: CartListComponent }
 ];
 
 @NgModule({

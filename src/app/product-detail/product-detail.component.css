@@ -47,3 +47,8 @@
 .filled.bad {
   color: #1e90ff;
 }
+
+.img-responsive {
+  width: 500px;
+  height: 300px;
+}

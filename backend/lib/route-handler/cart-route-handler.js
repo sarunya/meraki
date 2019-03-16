@@ -23,6 +23,17 @@ class CartRouteHandler {
         }
     }
 
+    async getCart(request, reply) {
+        const me = this;
+        try {
+            let service = new CartService(me.dependencies, me.config, request);
+            let result = await service.getActiveCart(request.headers.g_access_token);
+            reply.send(result);
+        } catch (error) {
+            me._replyError(reply, error);
+        }
+    }
+
     /**
      * Update Products To existing Cart
      * @param {*} request 

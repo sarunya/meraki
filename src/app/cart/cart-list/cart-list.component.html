@@ -13,7 +13,7 @@
         <li class="subtotal">Subtotal</li>
       </ul>
     </div>
-    <app-cart-item></app-cart-item>
+    <app-cart-item *ngFor="let item of cart.products;" [item]="item" [cartId]="cart.id"></app-cart-item>
   </div>
   <aside>
     <div class="summary">

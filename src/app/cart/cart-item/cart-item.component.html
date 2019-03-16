@@ -1,19 +1,19 @@
 <div class="basket-product">
   <div class="item">
     <div class="product-image">
-      <img src="http://placehold.it/120x166" alt="Placholder Image 2" class="product-frame">
+      <img src="{{item.image}}" alt="Placholder Image 2" class="product-frame">
     </div>
     <div class="product-details">
-      <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1>
-      <p><strong>Navy, Size 18</strong></p>
-      <p>Product Code - 232321939</p>
+      <h1><strong><span class="item-quantity"></span></strong>{{item.title}}</h1>
+      <!-- <p><strong></strong>Navy, Size 18</strong></p> -->
+      <p>Product Code - {{item.product_id}}</p>
     </div>
   </div>
-  <div class="price">26.00</div>
+  <div class="price">{{item.unit_price}}</div>
   <div class="quantity">
-    <input type="number" value="4" min="1" class="quantity-field">
+    <input type="number" value="{{item.quantity}}" min="1" class="quantity-field">
   </div>
-  <div class="subtotal">104.00</div>
+  <div class="subtotal">{{item.amount}}</div>
   <div class="remove">
     <button>Remove</button>
   </div>
