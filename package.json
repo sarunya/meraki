@@ -50,6 +50,7 @@
     "ejs": "^1.0.0",
     "express-session": "^1.7.6",
     "request-promise": "^4.2.4",
+    "request": "^2.88.0",
     "js-sha512": "^0.8.0"
   },
   "devDependencies": {
@@ -73,6 +74,7 @@
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
+    "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "js-sha512": "^0.8.0"
   }
