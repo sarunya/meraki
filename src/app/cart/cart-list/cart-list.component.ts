@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from './../../services/cart.service';
 import { CookieService } from 'ngx-cookie-service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-cart-list',
@@ -10,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class CartListComponent implements OnInit {
 
   cart;
-  constructor(private cartService: CartService, private cookieService: CookieService) { }
+  constructor(private spinnerService: Ng4LoadingSpinnerService, private cartService: CartService, private cookieService: CookieService) { }
 
   ngOnInit() {
     this._getCartDetails();
@@ -19,9 +20,11 @@ export class CartListComponent implements OnInit {
 
   private _getCartDetails() {
     const me = this;
+    me.spinnerService.show();
     let accessToken = me._getAccessToken();
     me.cartService.getCart(accessToken).subscribe((res) => {
       me.cart = res.body;
+      me.spinnerService.hide();
     })
   }
 

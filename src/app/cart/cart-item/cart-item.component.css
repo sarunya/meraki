@@ -176,6 +176,7 @@ li.subtotal:before {
 
 .item {
   width: 55%;
+  cursor: pointer;
 }
 
 .price,
@@ -365,6 +366,7 @@ aside {
   }
   .item {
     margin-bottom: 1rem;
+    cursor: pointer;
   }
   .product-image {
     width: 40%;

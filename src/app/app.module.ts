@@ -15,6 +15,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { CartListComponent } from './cart/cart-list/cart-list.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import {Globals} from './globals';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 
 const appRoutes: Routes = [
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    Ng4LoadingSpinnerModule.forRoot(),
     NgbModule,
     RouterModule.forRoot(
       appRoutes,

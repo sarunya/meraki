@@ -51,7 +51,8 @@
     "express-session": "^1.7.6",
     "request-promise": "^4.2.4",
     "request": "^2.88.0",
-    "js-sha512": "^0.8.0"
+    "js-sha512": "^0.8.0",
+    "ng4-loading-spinner": "^1.2.3"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^6.0.0-rc.1",
