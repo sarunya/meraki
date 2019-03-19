@@ -1,7 +1,7 @@
-import { CartService } from './../services/cart.service';
+import { CartService } from './../../services/cart.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductListService } from '../services/product-list.service';
+import { ProductListService } from '../../services/product-list.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({

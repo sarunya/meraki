@@ -1,4 +1,4 @@
-import { ProductListService } from '../services/product-list.service';
+import { ProductListService } from '../../services/product-list.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';

@@ -1,5 +1,5 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { Globals } from '../globals';
+import { Globals } from '../../globals';
 import { CookieService } from 'ngx-cookie-service';
 import * as sha from 'js-sha512';
 

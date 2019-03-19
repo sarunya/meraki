@@ -4,7 +4,7 @@ div.main_page {
 }
 
 .main_page div {
-    background-image: url("../../assets/img/image1.jpg");
+    background-image: url("../../../assets/img/image1.jpg");
     height: 80%;
     border: 2px solid rgb(15, 121, 112);
 }

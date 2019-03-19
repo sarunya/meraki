@@ -1,3 +1,4 @@
+<!-- <app-header-top></app-header-top> -->
 <div class="singleproduct">
   <div class="container">
     <div class="productdetails">
@@ -13,10 +14,8 @@
             </ng-template>
           </ngb-rating>
         </div>
-        <h5 class="item_price">$600.00</h5>
-        <p>Etiam faucibus viverra libero vel efficitur. Ut semper nisl ut laoreet ultrices. Maecenas dictum arcu purus,
-          sit amet volutpat purus viverra sit amet. Quisque lacinia quam sed tortor interdum, malesuada congue nunc
-          ornare.</p>
+        <h5 class="item_price">Rs. {{productdetail.unit_price}}</h5>
+        <p>{{productdetail.description}}</p>
         <div class="quantity">
           <p class="qty" style="float:left"> Qty : </p><input min="1" type="number" value="1" class="item_quantity" [(ngModel)]="itemQty">
         </div> <br>
@@ -143,8 +142,8 @@
               <span>☆</span>
             </div>
             <div class="ofr">
-              <p class="pric1"><del>$2000.00</del></p>
-              <p><span class="item_price">$500</span></p>
+              <p class="pric1"><del>Rs. 2000.00</del></p>
+              <p><span class="item_price">Rs. 500</span></p>
             </div>
           </div>
         </div>
@@ -169,8 +168,8 @@
               <span>☆</span>
             </div>
             <div class="ofr">
-              <p class="pric1"><del>$2000.00</del></p>
-              <p><span class="item_price">$500</span></p>
+              <p class="pric1"><del>Rs. 2000.00</del></p>
+              <p><span class="item_price">Rs. 500</span></p>
             </div>
           </div>
         </div>
@@ -195,8 +194,8 @@
               <span>☆</span>
             </div>
             <div class="ofr">
-              <p class="pric1"><del>$2000.00</del></p>
-              <p><span class="item_price">$500</span></p>
+              <p class="pric1"><del>Rs. 2000.00</del></p>
+              <p><span class="item_price">Rs. 500</span></p>
             </div>
           </div>
         </div>
@@ -221,8 +220,8 @@
               <span>☆</span>
             </div>
             <div class="ofr">
-              <p class="pric1"><del>$2000.00</del></p>
-              <p><span class="item_price">$500</span></p>
+              <p class="pric1"><del>Rs. 2000.00</del></p>
+              <p><span class="item_price">Rs. 500</span></p>
             </div>
           </div>
         </div>

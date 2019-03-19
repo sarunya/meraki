@@ -13,9 +13,8 @@
 
     <img src="{{product.image}}" alt="Denim Jeans" style="width:100%">
     <h4 align="center">{{product.title | uppercase}}</h4>
-    <h5 class="price" align="center">$19.99</h5>
-    <p align="center">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim
-      lorem jeansum.</p>
+    <h5 class="price" align="center">Rs. {{product.unit_price}}</h5>
+    <p align="center">{{product.description}}</p>
   </a>
   <p align="center"><button (click)="addProductToCart(product)">Add to Cart</button></p>
 </div>

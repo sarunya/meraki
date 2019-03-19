@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
-import { UserService } from './../services/user.service';
+import { UserService } from './../../services/user.service';
 import { CookieService } from 'ngx-cookie-service';
 
-import { CartService } from './../services/cart.service';
+import { CartService } from './../../services/cart.service';
 import { Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 

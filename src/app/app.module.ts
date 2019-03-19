@@ -7,23 +7,28 @@ import { CookieService } from 'ngx-cookie-service';
 
 
 import { AppComponent } from './app.component';
-import { HeaderTopComponent } from './header-top/header-top.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductCardComponent } from './product-card/product-card.component';
-import { DisplayImageComponent } from './display-image/display-image.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HeaderTopComponent } from './home/header-top/header-top.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductCardComponent } from './product/product-card/product-card.component';
+import { DisplayImageComponent } from './home/display-image/display-image.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { CartListComponent } from './cart/cart-list/cart-list.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import {Globals} from './globals';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { FormsModule } from '@angular/forms';
+import { ProductSearchComponent } from './admin/product-dashboard/product-search/product-search.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryItemComponent } from './categories/category-item/category-item.component';
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: "full" },
   { path: 'home', component: DisplayImageComponent },
   { path: 'productdetail/:id', component: ProductDetailComponent },
-  { path: 'cartdetail', component: CartListComponent }
+  { path: 'cartdetail', component: CartListComponent },
+  { path: 'category', component: CategoriesComponent },
+  { path: 'admin', component: ProductSearchComponent }
 ];
 
 @NgModule({
@@ -35,7 +40,10 @@ const appRoutes: Routes = [
     DisplayImageComponent,
     ProductDetailComponent,
     CartListComponent,
-    CartItemComponent
+    CartItemComponent,
+    ProductSearchComponent,
+    CategoriesComponent,
+    CategoryItemComponent
   ],
   imports: [
     BrowserModule,

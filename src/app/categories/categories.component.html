@@ -1,0 +1,12 @@
+<div class="row category-list">
+  <div class="row header">
+    <h2 style="align-content: center; padding-left:44%">CATEGORIES</h2>
+  </div>
+  <div class="catagory-items">
+  <a class="product-cart-a" *ngFor="let category of categories; index as i;" >  <!-- //routerLink="/products/{{product.id}}"-->
+    <div class="clearfix category-cards" *ngIf="$index % 3 == 0"></div>
+    <app-category-item [category]="category">
+    </app-category-item>
+  </a>
+</div>
+</div>

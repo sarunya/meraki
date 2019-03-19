@@ -1,0 +1,19 @@
+.products {
+    width: 96%;
+    height: 100%;
+    margin: 2%;
+    border: 2px solid teal;
+}
+
+.search_products {
+    height: 100px;
+    border-bottom: 2px solid teal;
+}
+
+.selectdiv {
+  float: left;  
+}
+
+.selectdiv label {
+    border: 2px;
+}
