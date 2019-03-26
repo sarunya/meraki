@@ -15,10 +15,10 @@ export class AppComponent {
     this.showDivs(1);
   }
 
-  public showDivs(n:number) {
-    var i : number;
+  public showDivs(n: number) {
+    var i: number;
     var x = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("demo");
+    var dots = document.getElementsByClassName("dot");
     if (n > x.length) { this.slideIndex = 1 }
     if (n < 1) { this.slideIndex = x.length }
     for (i = 0; i < x.length; i++) {
@@ -27,15 +27,17 @@ export class AppComponent {
     for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" w3-white", "");
     }
-    (<HTMLInputElement>x[this.slideIndex - 1]).style.display = "block";
-    dots[this.slideIndex - 1].className += " w3-white";
+    if (x.length > 0) {
+      (<HTMLInputElement>x[this.slideIndex - 1]).style.display = "block";
+      dots[this.slideIndex - 1].className += " w3-white";
+    }
   }
 
-  public plusDivs(n:number) {
+  public plusDivs(n: number) {
     this.showDivs(this.slideIndex += n);
   }
 
-  public currentDiv(n:number) {
+  public currentDiv(n: number) {
     this.showDivs(this.slideIndex = n);
   }
 

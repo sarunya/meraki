@@ -7,16 +7,17 @@ h1 {
 .header-top {
   width: 100%;
   padding-top: 1%;
-  margin-left: 1%;
   margin-right: 1%;
   /* padding-bottom: 1%; */
   text-align: center;
-  border-bottom: 2px solid rgb(8, 119, 82);
+  background-color: rgb(255, 245, 245);
+  /* border-bottom: 2px solid rgb(8, 119, 82); */
 }
 
 .menu {
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 .header-title {
@@ -38,10 +39,18 @@ h1 {
   float: left;
 }
 
-.search-bar {
-  width: 150%;
-  padding-left: 40%;
-  text-align: center;
+.search-items {
+  /* height: 100%; */
+  margin-left: 90%; 
+  /* text-align: center; */
+  position: relative;
+}
+
+.cart-items {
+  width: 8%;
+  /* padding-left: 85%; */
+  float: left;
+  position: relative;
 }
 
 .btn-primary {
@@ -83,7 +92,8 @@ h1 {
   /* margin: 8px 0 8px 24px; 
   outline: 0;
   vertical-align: top; */
-  width: 7%;
+  width: 15%;
+  align-content: center;
 }
 
 .user-img{
@@ -92,27 +102,29 @@ h1 {
   /* margin: 8px 0 8px 24px;*/
   outline: 0;
   vertical-align: top;
-  width: 48%;
+  width: 35%;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+  padding-left:47%;
+  width: 100%;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #b2ece4;
-  min-width: 110px;
+  background-color: rgb(255, 245, 245);
+  min-width: 116px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  border-style: solid;
-  border-color: #04616f;
+  /* border-style: solid; */
+  border-color: none; /*#04616f*/;
 }
 
 .username {
-  border-bottom: 0.5rem double #04616f;
+  /* border-bottom: 0.5rem double #04616f; */
   /* border-style: double; */
 }
 
@@ -123,8 +135,41 @@ h1 {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color :rgb(245, 216, 216);}
 
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.login{
+  width: 65%;
+  padding-left: 50%;
+  float: left;
+  position: relative;
+}
+
+.input-group-btn:hover .input-group-btn {
+  background-color: snow;
+}
+
+.input-group-btn:hover  #txtSearch {display: block;}
+
+.glyphicon-search:hover  #txtSearch {display: block;}
+/* 
+.search-items:hover  #txtSearch{display: block;}
+*/
+.search-items img{
+  max-width: 25%;
+  max-height: 4%;
+  align-self:  right;
+} 
+
+.cart-items img {
+  max-width: 50%;
+  max-height: 4%;
+  align-self:  right;
+} 
+
+sub {
+  font-size: 30%;
+}
