@@ -1,8 +1,12 @@
 .product-list {
+    position: relative;
     margin: 2%;
     background-color: rgb(255, 245, 245);
 }
 
 .product-list div {
-    height: 30%;;
+    height: 30%;
+    width: 100%;
+    position: relative;
+    background-color: rgb(223, 161, 161);
 }

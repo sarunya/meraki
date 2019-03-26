@@ -7,14 +7,17 @@ html a {
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
+*/
 
 main {
-  background-color: #fff;
-  color: #666;
+  background-color: rgb(241, 209, 209);
+  color: rgb(175, 84, 84);
   font-family: 'Open Sans', sans-serif;
-  font-size: 20px%;
+  font-size: 20px;
   margin: 0 auto;
-} */
+  width: 100%;
+  height: 100%;
+} 
 
 a {
   border: 0 none;
@@ -85,7 +88,7 @@ button,
 .subtotal-value:before,
 .total-value:before,
 .promo-value:before {
-  content: '£';
+  content: 'Rs. ';
 }
 
 .hide {
@@ -405,6 +408,7 @@ aside {
 @media screen and (width: 1200px) {
   main {
     width: 100%;
+    background-color: rgb(255, 245, 245)
   }
   .product-details {
     padding: 0 1rem;
