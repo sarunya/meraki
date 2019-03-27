@@ -253,8 +253,10 @@ sub {
   font-size: 16px;
   float: left;
   padding-left: 4%;
+  color: #f36969;
 }
 
 .menus a:hover {
   cursor: pointer;
+  text-decoration: none;
 }

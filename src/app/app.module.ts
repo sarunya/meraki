@@ -22,7 +22,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { CategoryItemComponent } from './categories/category-item/category-item.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { HomeCategoryComponent } from './home/home-category/home-category.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
+import { AboutusComponent } from './about/aboutus/aboutus.component';
+import { TeammemberComponent } from './about/teammember/teammember.component';
 
 
 const appRoutes: Routes = [
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     CategoryItemComponent,
     FooterComponent,
     HomeCategoryComponent,
-    AboutusComponent
+    AboutusComponent,
+    TeammemberComponent
   ],
   imports: [
     BrowserModule,
