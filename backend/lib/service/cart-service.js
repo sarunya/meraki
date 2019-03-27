@@ -33,6 +33,7 @@ class CartService {
       }
 
       //get updated product details
+      cart = cart.data;
       let productsInCart = _.map(cart.products, "product_id");
       let productDetails = await me.productService.getAllProductsByIds(productsInCart);
       productDetails = _.keyBy(productDetails, "id");
@@ -140,6 +141,8 @@ class CartService {
       //create new cart for the user
       if (!cart) {
         cart = me._createCart(userInfo);
+      } else {
+        cart = cart.data;
       }
 
       //get all product details

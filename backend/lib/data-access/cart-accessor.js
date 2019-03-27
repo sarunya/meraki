@@ -41,7 +41,8 @@ class CartAccessor extends Pg2 {
   async getActiveCartByEmail(email) {
     const me = this;
     let result = await me.filter(me.baseUserCommands.getActiveCartByEmail, [email]);
-    return result[0].data;
+    console.log(JSON.stringify(result, null, 10));
+    return result[0];
   }
 
   async getCartsByStatus(status) {
