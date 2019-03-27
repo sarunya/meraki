@@ -41,7 +41,7 @@ h1 {
 
 .search-items {
   /* height: 100%; */
-  margin-left: 90%; 
+  margin-left: 90%;
   /* text-align: center; */
   position: relative;
 }
@@ -93,7 +93,7 @@ h1 {
   padding: 0%;
 }
 
-.dropdown{
+.dropdown {
   /* height: 40px;
   /* margin: 8px 0 8px 24px; 
   outline: 0;
@@ -102,19 +102,19 @@ h1 {
   align-content: center;
 }
 
-.user-img{
+.user-img {
   border-radius: 50%;
   height: 40px;
   /* margin: 8px 0 8px 24px;*/
   outline: 0;
   vertical-align: top;
-  width: 35%;
+  width: 40%;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
-  padding-left:47%;
+  padding-left: 47%;
   width: 100%;
 }
 
@@ -123,10 +123,12 @@ h1 {
   position: absolute;
   background-color: rgb(255, 245, 245);
   min-width: 116px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   /* border-style: solid; */
-  border-color: none; /*#04616f*/;
+  border-color: none;
+  /*#04616f*/
+  ;
 }
 
 .username {
@@ -141,40 +143,52 @@ h1 {
   display: block;
 }
 
-.dropdown-content a:hover {background-color :rgb(245, 216, 216);}
+.dropdown-content a:hover {
+  background-color: rgb(245, 216, 216);
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
-.login{
-  width: 65%;
-  padding-left: 50%;
+.login {
+  width: 25%;
+  padding-left: 10%;
   float: left;
   position: relative;
 }
+
 
 .input-group-btn:hover .input-group-btn {
   background-color: snow;
 }
 
-.input-group-btn:hover  #txtSearch {display: block;}
+.input-group-btn:hover #txtSearch {
+  display: block;
+}
 
-.glyphicon-search:hover  #txtSearch {display: block;}
+.glyphicon-search:hover #txtSearch {
+  display: block;
+}
+
 /* 
 .search-items:hover  #txtSearch{display: block;}
 */
-.search-items img{
+.search-items img {
   max-width: 25%;
   max-height: 4%;
-  align-self:  right;
-} 
+  align-self: right;
+}
 
 .cart-items img {
   max-width: 100%;
   max-height: 110%;
-  align-self:  right;
-} 
+  align-self: right;
+}
 
 .cart-items span {
 
@@ -190,18 +204,57 @@ sub {
   width: 100%;
 }
 
-#ex4 .p1[data-count]:after{
-  position:absolute;
-  right:10%;
-  top:8%;
+#ex4 .p1[data-count]:after {
+  position: absolute;
+  right: 10%;
+  top: 8%;
   content: attr(data-count);
-  font-size:55%;
-  padding:.2em;
-  border-radius:50%;
-  line-height:1em;
+  font-size: 55%;
+  padding: .2em;
+  border-radius: 50%;
+  line-height: 1em;
   color: white;
-  background:rgba(255,0,0,.85);
-  text-align:center;
+  background: rgba(255, 0, 0, .85);
+  text-align: center;
   min-width: 1em;
-  font-weight:bold;
+  font-weight: bold;
+}
+
+/* 
+.menu-items{
+  height: 100%;
+  width: 50%;
+  position: relative;
+  margin: 0;
+  float: left;
+} */
+
+.menu-items {
+  width: 40%;
+  padding-left: 2%;
+  float: left;
+  position: relative;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1em;
+
+}
+
+.menus {
+  width: 100%;
+  height: 100%;
+  padding-top: 3%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.menus a{
+  font-size: 16px;
+  float: left;
+  padding-left: 4%;
+}
+
+.menus a:hover {
+  cursor: pointer;
 }
