@@ -256,7 +256,7 @@ sub {
   color: #f36969;
 }
 
-.menus a:hover {
+.menus a:hover, .cart-items:hover {
   cursor: pointer;
   /* text-decoration: double; */
 }
