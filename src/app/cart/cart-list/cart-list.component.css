@@ -10,13 +10,14 @@ html a {
 */
 
 main {
-  background-color: rgb(241, 209, 209);
+  background-color: #efe8f1; /*rgb(241, 209, 209);*/
   color: rgb(175, 84, 84);
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   margin: 0 auto;
   width: 100%;
   height: 100%;
+  padding-left: 10%;
 } 
 
 a {
@@ -57,7 +58,7 @@ button {
 
 button:hover,
 button:focus {
-  background-color: #555;
+  background-color: rgb(243, 172, 172);
 }
 
 img,
@@ -151,8 +152,9 @@ label {
 }
 
 .basket-labels {
-  border-top: 1px solid #03acc5;
-  border-bottom: 1px solid #03acc5;
+  /* border-top: 1px solid #adbce6; */
+  /* border-bottom: 1px solid #f58ab1; */
+  background-color: #e3eafa;
   margin-top: 1.625rem;
 }
 
@@ -237,15 +239,6 @@ li.subtotal:before {
   box-sizing: border-box;
 }
 
-.quantity-field {
-  background-color: #ccc;
-  border: 1px solid #03acc5;
-  border-radius: 4px;
-  font-size: 2rem;
-  padding: 2px;
-  width: 3.75rem;
-}
-
 aside {
   float: right;
   position: relative;
@@ -253,14 +246,15 @@ aside {
 }
 
 .summary {
-  background-color: #eee;
-  border: 1px solid #03acc5;
+  background-color: #fdf3e6;
+  border: 1px solid #f5e1c8;
   padding: 1rem;
-  position: fixed;
+  position: relative;
   width: 250px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin-top: 5%;
 }
 
 .summary-total-items {
@@ -271,8 +265,8 @@ aside {
 
 .summary-subtotal,
 .summary-total {
-  border-top: 1px solid #03acc5;
-  border-bottom: 1px solid #03acc5;
+  border-top: 1px solid #f6d386;
+  border-bottom: 1px solid #f6d386;
   clear: both;
   margin: 1rem 0;
   overflow: hidden;
@@ -330,19 +324,21 @@ aside {
 .checkout-cta {
   display: block;
   float: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   text-transform: uppercase;
   padding: 0.625rem 0;
   width: 100%;
+  background-color: #f6d386;
+  color: inherit;
 }
 
 .summary-delivery-selection {
-  background-color: #ccc;
-  border: 1px solid #03acc5;
+  background-color: #f6d386;
+  border: 1px solid #f6d386;
   border-radius: 4px;
   display: block;
-  font-size: 2rem;
+  font-size: 1.5rem;
   height: 34px;
   width: 100%;
 }
@@ -392,7 +388,8 @@ aside {
   }
   .summary {
     margin-top: 1.25rem;
-    position: relative;
+    position: fixed;
+    margin-top: 5%;
   }
 }
 
@@ -402,6 +399,7 @@ aside {
   }
   .summary {
     width: 28%;
+    margin-top: 5%;
   }
 }
 

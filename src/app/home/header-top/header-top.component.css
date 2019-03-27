@@ -258,5 +258,5 @@ sub {
 
 .menus a:hover {
   cursor: pointer;
-  text-decoration: none;
+  /* text-decoration: double; */
 }

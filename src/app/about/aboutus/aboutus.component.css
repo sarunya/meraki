@@ -10,6 +10,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
 }
+/* .container {
+    /* background-color: rgb(248, 234, 234); 
+} */
 .heading-title {
     margin-bottom: 100px;
 }
@@ -78,7 +81,7 @@ body {
 }
 .desk, .desk h4, .team-hover .s-link a {
     text-align: center;
-    color: #222;
+    color: rgb(251, 109, 109);
 }
 .team-member:hover .team-hover .s-link {
     bottom: 10%;

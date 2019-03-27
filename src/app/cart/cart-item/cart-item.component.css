@@ -214,9 +214,14 @@ li.subtotal:before {
 }
 
 .basket-product {
-  border-bottom: 1px solid #03acc5;
+  border-bottom: 1px solid #7193af;
   padding: 1rem 0;
   position: relative;
+  /* background-color: snow */
+}
+
+.basket-product:nth-child() {
+  background-color: #efe8f1;
 }
 
 .product-image {
@@ -240,8 +245,8 @@ li.subtotal:before {
 }
 
 .quantity-field {
-  background-color: #ccc;
-  border: 2px solid #03acc5;
+  background-color: rgb(243, 242, 242);
+  border: 2px solid #aee1f1;
   border-radius: 4px;
   font-size: 1.5rem;
   padding: 2px;
@@ -253,51 +258,6 @@ aside {
   float: right;
   position: relative;
   width: 30%;
-}
-
-.summary {
-  background-color: #eee;
-  border: 1px solid #03acc5;
-  padding: 1rem;
-  position: fixed;
-  width: 250px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.summary-total-items {
-  color: #666;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.summary-subtotal,
-.summary-total {
-  border-top: 1px solid #03acc5;
-  border-bottom: 1px solid #03acc5;
-  clear: both;
-  margin: 1rem 0;
-  overflow: hidden;
-  padding: 0.5rem 0;
-}
-
-.subtotal-title,
-.subtotal-value,
-.total-title,
-.total-value,
-.promo-title,
-.promo-value {
-  color: #111;
-  float: left;
-  width: 50%;
-}
-
-.summary-promo {
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
 }
 
 .promo-title {
@@ -312,43 +272,6 @@ aside {
   width: 30%;
 }
 
-.summary-delivery {
-  padding-bottom: 3rem;
-}
-
-.subtotal-value,
-.total-value {
-  text-align: right;
-}
-
-.total-title {
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.summary-checkout {
-  display: block;
-}
-
-.checkout-cta {
-  display: block;
-  float: none;
-  font-size: 2rem;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 0.625rem 0;
-  width: 100%;
-}
-
-.summary-delivery-selection {
-  background-color: #ccc;
-  border: 1px solid #03acc5;
-  border-radius: 4px;
-  display: block;
-  font-size: 2rem;
-  height: 34px;
-  width: 100%;
-}
 
 @media screen and (max-width: 640px) {
   aside,
@@ -391,7 +314,7 @@ aside {
     margin-top: 2rem;
     position: relative;
     font-size: 1.5rem;
-    color: #04616f;
+    color: #5b4b79;
   }
   .remove button {
     padding: 0;
