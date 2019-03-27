@@ -250,6 +250,8 @@ sub {
 }
 
 .menus a{
+  position: relative;
+  width: 18%;
   font-size: 16px;
   float: left;
   padding-left: 4%;
