@@ -6,6 +6,25 @@
     padding-left: 52%;
 }
 
+.singleproduct{
+  /* padding: 1%; */
+  min-height: 100%;
+  width: 100%;
+  background-color: antiquewhite;
+}
+
+.container{
+  height: 100%;
+  background-color: #e6f0fd;
+  padding: 0;
+}
+
+.productdetails {
+  padding: 1%;
+  height: 500px;
+  background-color: peachpuff;
+}
+
 .productdetails .image {
   padding-right: 2%;
   width: 50%;

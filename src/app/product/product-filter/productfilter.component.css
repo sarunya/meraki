@@ -29,21 +29,27 @@
     position: relative;
 }
 
-.categories p{
+.categories p, .categories h3{
     text-align: center;
     vertical-align: center;
-    text-emphasis-color: tomato;
+    color: tomato;
     width: 100%;
     /* height: 100%; */
     position: relative;
-    border-bottom: 1px solid rgb(163, 209, 248);
-    background-color: rgb(173, 206, 235);
-    font-size: 18px;
+    border-bottom: 1px solid rgb(250, 217, 174);
+    background-color: antiquewhite;
+    font-size: 16px;
     padding: 2%;
     padding-bottom: 5%;
 }
 
+.categories h3 {
+    background-color: aliceblue;
+    font-size: 18px;
+}
+
 .categories p:hover {
-    background-color: antiquewhite;
+    background-color: rgb(250, 223, 187);
     color: coral;
+    cursor: pointer;
 }

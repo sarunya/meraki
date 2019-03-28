@@ -3,6 +3,7 @@ import { AppSettings } from '../AppSettings';
 import { HttpUtility } from '../../utils/http-util';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner/ng4LoadingSpinner.service';
 
 @Injectable({
   providedIn: 'root'
