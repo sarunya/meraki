@@ -17,7 +17,7 @@ ul.social-nav.model-3d-0.footer-social.social.two {
 }
 
 .footer-left p {
-    color: #737070;
+    color: rgb(238, 219, 196);
     line-height: 2em;
     font-size: 14px;
     margin-top: 22px;
@@ -47,7 +47,7 @@ ul.social-nav.model-3d-0.footer-social.social.two {
 
 .sign-gd ul li a,
 .sign-gd-two ul li a {
-    color: #737070;
+    color:antiquewhite;
     letter-spacing: 1px;
 }
 
@@ -88,7 +88,7 @@ ul.social-nav.model-3d-0.footer-social.social.two {
 .address-right p {
     margin: 1em 0 0 0;
     font-size: .9em;
-    color: #565656;
+    color: antiquewhite;
 }
 
 .address-right p a {
@@ -262,7 +262,7 @@ p.copy-right a:hover {
 
 .footer-left h2 a {
     font-size: 1em;
-    color: #7e8184;
+    color: bisque;
     font-weight: 700;
     text-shadow: 0 1px 2px rgba(29, 28, 28, 0.9);
 }

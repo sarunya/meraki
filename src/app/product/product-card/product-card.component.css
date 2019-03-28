@@ -3,7 +3,8 @@
     margin: 1%;
     width: 31%;
     padding: 0%;
-    height: 500px;
+    /* height: 400px; */
+    /* padding-bottom: 56.25%; */
     border: 3px solid rgb(248, 201, 201);
 }
 
@@ -13,7 +14,7 @@
 
 
 .product-card img {
-    max-height: 320px;
+    max-height: 250px;
 }
 
 a:hover {

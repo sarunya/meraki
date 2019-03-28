@@ -1,22 +1,26 @@
 .container {
     width: 100%;
-    height: 100%;
+    /* min-height: 100%; */
     padding: 2%;
 }
 
 .filters {
-    width: 20%;
-    height: 50%;
+    width: 15%;
+    /* min-height: 100%; */
     position: relative;
     float: left;
+    background-color: aliceblue;
 }
 
 .products {
-    left: 22%; 
-    width: 78%;
-    height: 100%;
+    left: 2%; 
+    width: 83%;
+    min-height: 100%;
     position: relative;
-    background-color:  wheat;
+    background-color:  rgb(253, 241, 238);
+    display:flex;
+    display:inline-block;
+    overflow: hidden;
 }
 
 .categories {
@@ -30,10 +34,13 @@
     vertical-align: center;
     text-emphasis-color: tomato;
     width: 100%;
-    height: 10%;
+    /* height: 100%; */
     position: relative;
-    border-bottom: 1px solid tomato;
-    background-color: lemonchiffon
+    border-bottom: 1px solid rgb(163, 209, 248);
+    background-color: rgb(173, 206, 235);
+    font-size: 18px;
+    padding: 2%;
+    padding-bottom: 5%;
 }
 
 .categories p:hover {
