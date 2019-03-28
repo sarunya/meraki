@@ -13,8 +13,13 @@ body {
 /* .container {
     /* background-color: rgb(248, 234, 234); 
 } */
+
+.container .row {
+    background-color: lavender;
+}
 .heading-title {
     margin-bottom: 100px;
+    /* background-color: rgb(245, 230, 212); */
 }
 .text-center {
     text-align: center;

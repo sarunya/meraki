@@ -24,7 +24,7 @@ import { FooterComponent } from './home/footer/footer.component';
 import { HomeCategoryComponent } from './home/home-category/home-category.component';
 import { AboutusComponent } from './about/aboutus/aboutus.component';
 import { TeammemberComponent } from './about/teammember/teammember.component';
-import { ProductfilterComponent } from './product/productfilter/productfilter.component';
+import { ProductfilterComponent } from './product/product-filter/productfilter.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 
@@ -36,7 +36,8 @@ const appRoutes: Routes = [
   { path: 'category', component: CategoriesComponent },
   { path: 'admin', component: ProductSearchComponent },
   { path: 'aboutus', component: AboutusComponent},
-  { path: 'checkout', component: CheckoutComponent}
+  { path: 'checkout', component: CheckoutComponent},
+  { path: 'products', component: ProductfilterComponent}
 ];
 
 @NgModule({
