@@ -15,16 +15,23 @@ export class CartItemComponent implements OnInit {
 
   constructor(private cartService: CartService, private cookieService: CookieService) { }
 
+  quantity;
+
   ngOnInit() {
   }
 
   removeItem(item) {
     const me = this;
+    me.updateItem(item, 0);
+  }
+
+  updateItem(item, quantity) {
+    const me = this;
     let accessToken = me.cookieService.get("g_access_token");
     console.log(item, me.cartId, accessToken);
     let payload = {
       product_id: item.product_id,
-      quantity: 0
+      quantity: quantity
     }
     me.cartService.updateCart(me.cartId, payload, accessToken).subscribe((res) => {
         console.log(res.body);

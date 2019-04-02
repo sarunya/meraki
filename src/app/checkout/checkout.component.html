@@ -8,83 +8,63 @@
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
+            <!-- <label for="fname"><i class="fa fa-user"></i> Full Name</label> -->
+            <input type="text" id="fname" name="firstname" placeholder="Full Name" [(ngModel)]="billingInfo.name">
+            <!-- <label for="email"><i class="fa fa-envelope"></i> Email</label> -->
+            <input type="text" id="email" name="email" placeholder="Email"  [(ngModel)]="billingInfo.email">
+            <!-- <label for="phone"><i class="fa fa-phone-square"></i> Mobile Number</label> -->
+            <input type="text" id="phone" name="phone" placeholder="Phone Number" [(ngModel)]="billingInfo.phone">
+            <!-- <label for="adr"><i class="fa fa-address-card-o"></i> Address</label> -->
+            <input type="text" id="adr1" name="address" placeholder="Address"  [(ngModel)]="billingInfo.line1">
+            <input type="text" id="adr2" name="address" placeholder="Address" [(ngModel)]="billingInfo.line2">
+            <!-- <label for="state">State</label> -->
+            <input type="text" id="state" name="state" placeholder="State" [(ngModel)]="billingInfo.state">
+            
 
             <div class="row">
               <div class="col-50">
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="NY">
+                <!-- <label for="city">City</label> -->
+                <input type="text" id="city" name="city" placeholder="City" [(ngModel)]="billingInfo.city">
               </div>
               <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
+                <!-- <label for="zip">Zip</label> -->
+                <input type="text" id="zip" name="zip" placeholder="Zip Code" [(ngModel)]="billingInfo.zipcode">
               </div>
             </div>
           </div>
 
-          <!-- <div class="col-50">
-            <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+          <div *ngIf="!shipAsBilling" class="col-50">
+            <h3>Shipping Address</h3>
+            <!-- <label for="fname"><i class="fa fa-user"></i> Full Name</label> -->
+            <input type="text" id="fname" name="firstname" placeholder="Full Name" [(ngModel)]="shippingInfo.name">
+            <!-- <label for="email"><i class="fa fa-envelope"></i> Email</label> -->
+            <input type="text" id="email" name="email" placeholder="Email"  [(ngModel)]="shippingInfo.email">
+            <!-- <label for="phone"><i class="fa fa-phone-square"></i> Mobile Number</label> -->
+            <input type="text" id="phone" name="phone" placeholder="Phone Number" [(ngModel)]="shippingInfo.phone">
+            <!-- <label for="adr"><i class="fa fa-address-card-o"></i> Address</label> -->
+            <input type="text" id="adr1" name="address" placeholder="Address"  [(ngModel)]="shippingInfo.line1">
+            <input type="text" id="adr2" name="address" placeholder="Address" [(ngModel)]="shippingInfo.line2">
+            <!-- <label for="state">State</label> -->
+            <input type="text" id="state" name="state" placeholder="State" [(ngModel)]="shippingInfo.state">
+            
 
             <div class="row">
               <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
+                <!-- <label for="city">City</label> -->
+                <input type="text" id="city" name="city" placeholder="City" [(ngModel)]="shippingInfo.city">
               </div>
               <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
+                <!-- <label for="zip">Zip</label> -->
+                <input type="text" id="zip" name="zip" placeholder="Zip Code" [(ngModel)]="shippingInfo.zipcode">
               </div>
             </div>
-          </div> -->
-
-          <div class="col-50">
-              <h3>Shipping Address</h3>
-              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-              <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-              <label for="email"><i class="fa fa-envelope"></i> Email</label>
-              <input type="text" id="email" name="email" placeholder="john@example.com">
-              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-              <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-              <label for="city"><i class="fa fa-institution"></i> City</label>
-              <input type="text" id="city" name="city" placeholder="New York">
-  
-              <div class="row">
-                <div class="col-50">
-                  <label for="state">State</label>
-                  <input type="text" id="state" name="state" placeholder="NY">
-                </div>
-                <div class="col-50">
-                  <label for="zip">Zip</label>
-                  <input type="text" id="zip" name="zip" placeholder="10001">
-                </div>
-              </div>
-            </div>
+          </div>
 
         </div>
         <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+          <input type="checkbox" checked="checked" name="sameadr" [(ngModel)]="shipAsBilling" (change)="sameAsShipping()" > Shipping address same as billing
         </label>
-        <input type="submit" value="SUBMIT ORDER" class="btn">
+        <input type="submit" value="UPDATE ADDRESS" class="btn" id="addressBtn" (click)="updateAddress()">
       </form>
     </div>
   </div>
@@ -100,6 +80,8 @@
       <p *ngFor="let cartitem of cart.products"><a href="#">{{cartitem.title}}</a> <span class="price">Rs. {{cartitem.amount}}</span></p>
       <hr>
       <p>Total <span class="price" style="color:black"><b>Rs. {{cart.totalamount}}</b></span></p>
+
+      <input type="submit" value="SUBMIT ORDER" class="btn" (click)="placeOrder()">
     </div>
   </div>
 </div>

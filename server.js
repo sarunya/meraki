@@ -15,11 +15,13 @@ function start() {
   let dependencies = {};
 
   //nconf.env().argv();
-  dependencies.config = defaultConfig;
   if (process.env.DATABASE_URL) {
     //console.log(path.join(cwd, nconf.get('config')));
     defaultConfig.postgres.connection_string_meraki = process.env.DATABASE_URL;
   }
+  dependencies.config = defaultConfig;
+
+  console.log(dependencies.config.postgres.connection_string_meraki);
   dependencies.pgpmeraki = db(dependencies.config.postgres.connection_string_meraki, dependencies.config.postgres.poolSize);
 
   let productRouteHandler = new ProductRouteHandler(dependencies);
@@ -64,6 +66,18 @@ function start() {
 
   app.put('/cart/:cartid/remove', (req, res) => {
     return cartRouteHandler.updateCartItem(req, res);
+  })
+
+  app.post('/cart/:cartid/address', (req, res) => {
+    return cartRouteHandler.updateCartAddress(req, res);
+  })
+
+  app.post('/cart/:cartid/submit', (req, res) => {
+    return cartRouteHandler.placeOrder(req, res);
+  })
+
+  app.get('/order/:cartid', (req, res) => {
+    return cartRouteHandler.getOrderByCartId(req, res);
   })
 
   app.get('*', function(req,res) {

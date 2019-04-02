@@ -28,7 +28,8 @@ sqlFileHash[Constants.TableNames.Cart] = {
   getByCartId: load('./cart/getbycartid.sql'),
   getActiveCartByEmail: load('./cart/getactivecartbyemail.sql'),
   getOrdersByEmail: load('./cart/getordersbyemail.sql'),
-  getCartsByStatus: load('./cart/getcartsbystatus.sql')
+  getCartsByStatus: load('./cart/getcartsbystatus.sql'),
+  getOrderByCartId: load('./cart/getorderbycartid.sql')
 };
 
 module.exports = sqlFileHash;

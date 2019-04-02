@@ -1,0 +1,54 @@
+<div class="confirmation">
+  <div class="title">
+      <h4 align="center">Order Confirmation #{{order.order_id}} - {{order.status}}</h4><br>
+      <h5 align="center">You wil get a call from our representative shortly. Thanks for shopping with us!</h5>
+  </div><br>
+
+  <div class="contents">
+      <div class="basket-product" *ngFor="let item of order.products">
+          <div class="item" routerLink="/productdetail/{{item.product_id}}">
+            <div class="product-image">
+              <img src="{{item.image}}" alt="Placholder Image 2" class="product-frame">
+            </div>
+            <div class="product-details">
+              <h1><strong><span class="item-quantity"></span></strong>{{item.title}}</h1>
+              <p>Product Code - {{item.product_id}}</p>
+            </div>
+          </div>
+          <div class="price">{{item.unit_price}}</div>
+          <div class="quantity">
+            <label type="number">{{item.quantity}}</label>
+          </div>
+          <div class="subtotal">{{item.amount}}</div>
+        </div>
+  </div>
+
+  <div class="address_info">
+    <div class="shipping_info">
+      <label>Shipping Address</label><br>
+      {{order.shipping_info.name}}<br>
+      {{order.shipping_info.line1}},<br>
+      {{order.shipping_info.line2}},<br>
+      {{order.shipping_info.city}}, {{order.shipping_info.state}}<br>
+      Zip Code: {{order.shipping_info.zipcode}}<br>
+      {{order.shipping_info.phone}}<br>
+      {{order.shipping_info.email}}
+    </div>
+    <div class="billing_info">
+      <label>Billing Address</label><br>
+      {{order.billing_info.name}}<br>
+      {{order.billing_info.line1}},<br>
+      {{order.billing_info.line2}},<br>
+      {{order.billing_info.city}}, {{order.billing_info.state}}<br>
+      Zip Code: {{order.billing_info.zipcode}}<br>
+      {{order.billing_info.phone}}<br>
+      {{order.billing_info.email}}
+    </div>
+  </div> 
+
+  <div class="payment_info">
+    <div>Shipping Method : {{order.shipping_method}}</div><br>
+    <div>Total : Rs. {{order.totalamount}}</div>
+    <sub>*Shipping Charges May Apply</sub>
+  </div>
+</div>

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderTopComponent } from './home/header-top/header-top.component';
@@ -16,7 +16,7 @@ import { CartListComponent } from './cart/cart-list/cart-list.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import {Globals} from './globals';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ProductSearchComponent } from './admin/product-dashboard/product-search/product-search.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryItemComponent } from './categories/category-item/category-item.component';
@@ -26,6 +26,9 @@ import { AboutusComponent } from './about/aboutus/aboutus.component';
 import { TeammemberComponent } from './about/teammember/teammember.component';
 import { ProductfilterComponent } from './product/product-filter/productfilter.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import {DemoMaterialModule} from '../material-module';
+import { OrderConfirmationComponent } from './checkout/order-confirmation/order-confirmation.component';
+import { MyordersComponent } from './checkout/myorders/myorders.component';
 
 
 const appRoutes: Routes = [
@@ -37,7 +40,9 @@ const appRoutes: Routes = [
   { path: 'admin', component: ProductSearchComponent },
   { path: 'aboutus', component: AboutusComponent},
   { path: 'checkout', component: CheckoutComponent},
-  { path: 'products', component: ProductfilterComponent}
+  { path: 'products', component: ProductfilterComponent},
+  { path: 'confirmation/:cartid', component: OrderConfirmationComponent},
+  { path: 'myorders', component: MyordersComponent}
 ];
 
 @NgModule({
@@ -58,7 +63,9 @@ const appRoutes: Routes = [
     AboutusComponent,
     TeammemberComponent,
     ProductfilterComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderConfirmationComponent,
+    MyordersComponent
   ],
   imports: [
     BrowserModule,
@@ -66,13 +73,15 @@ const appRoutes: Routes = [
     Ng4LoadingSpinnerModule.forRoot(),
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true,
         scrollPositionRestoration: 'enabled'
       } // <-- debugging purposes only
-    )
-
+    ),
+    DemoMaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [Globals, CookieService],
   bootstrap: [AppComponent] //[AppComponent, HeaderTopComponent, ProductListComponent]

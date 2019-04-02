@@ -11,7 +11,7 @@
   </div>
   <div class="price">{{item.unit_price}}</div>
   <div class="quantity">
-    <input type="number" value="{{item.quantity}}" min="1" class="quantity-field">
+    <input type="number" value="{{item.quantity}}" min="1" class="quantity-field" [(ngModel)]="item.quantity" (change)="updateItem(item,item.quantity)">
   </div>
   <div class="subtotal">{{item.amount}}</div>
   <div class="remove">

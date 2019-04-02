@@ -60,7 +60,7 @@ class CartAccessor extends Pg2 {
   async getOrdersByEmail(email) {
     const me = this;
     let result = await me.filter(me.baseUserCommands.getOrdersByEmail, [email]);
-    return result[0];
+    return result;
   }
 
   async save(data) {
@@ -73,6 +73,11 @@ class CartAccessor extends Pg2 {
     const me = this;
     let id = data.id;
     return await me.update(me.baseUserCommands.update, [id, data]);
+  }
+
+  async getOrderByCartId(cartId) {
+    const me = this;
+    return await me.filter(me.baseUserCommands.getOrderByCartId, [cartId]);
   }
 
 }

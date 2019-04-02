@@ -77,6 +77,48 @@ class CartService {
     }
   }
 
+  async getOrdersByAccessToken(accessToken) {
+    const me = this;
+    try {
+        let userInfo = await me._validateAndPopulateUserInfo(accessToken);
+        return await me.cartAccessor.getOrdersByEmail(userInfo.email);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getOrdersByEmail(email) {
+    const me = this;
+    try {
+      return await me.cartAccessor.getOrdersByEmail(email);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getOrderByCartId(cartId) {
+    const me = this;
+    try {
+      let result = await me.cartAccessor.getOrderByCartId(cartId);
+      return result[0].data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateAddressInfo(cartId, accessToken, addressInfo) {
+    const me = this;
+    try {
+      let cart = await me._getExistingCart(cartId, accessToken);
+      cart = cart[0].data;
+      cart.shipping_info = addressInfo.shipping_info;
+      cart.billing_info = addressInfo.billing_info;
+      return await me.cartAccessor.updateCart(cart);
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async _validateAndPopulateUserInfo(accessToken) {
     try {
       const me = this;
@@ -203,16 +245,18 @@ class CartService {
     }
   }
 
-  async placeOrder(cartId) {
+  async placeOrder(cartId, accessToken) {
     const me = this;
     try {
-      let cart = await me.getCartDetails(cartId);
+      let cart = await me._getExistingCart(cartId, accessToken);
+      cart = cart[0].data;
       if (!cart || cart.status != "Active") {
         throw "CartIsNotActive";
       } else {
         cart.status = "Ordered";
-        result = await me.cartAccessor.updateCart(cart);
-        return result;
+        cart.order_id = utils.generateId();
+        console.log("cart created", JSON.stringify(cart, null, 10));
+        return await me.cartAccessor.updateCart(cart);
       }
     } catch (error) {
       throw error;

@@ -1,0 +1,35 @@
+.myorders {
+    width: 70%;
+    min-height: 100%;
+    position: relative;
+    margin-top: 2%;
+    padding-bottom: 5%;
+    margin-bottom: 2%;
+    left: 15%;
+    background-color: #efe8f1;
+}
+
+.titles {
+    height: 20%;
+    position: relative;
+    padding-top:2%;
+}
+
+.titles a {
+    width: 33%;
+    position: relative;
+    float:left;
+    text-align: center;
+    font-size: 20px;
+    color: burlywood;
+}
+
+.titles a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid tan;
+}
+
+.order {
+    position: relative;
+    padding-top: 2%;
+}

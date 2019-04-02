@@ -20,7 +20,7 @@ export class CartService {
 
   addProductToCart(product, quantity) {
     const me = this;
-    let accessToken = me.cookieService.get("g_access_token");
+    let accessToken = me._getAccessToken();
     if (accessToken) {
       let payload = {
         product_id: product.id,
@@ -44,6 +44,13 @@ export class CartService {
     alert("Please login to continue");
   }
 
+  public placeOrder(cartId) {
+    const me = this;
+    let header = {g_access_token: me._getAccessToken()};
+    let url = me.parse(me.baseUrl + me.cartPaths.placeorder, cartId);
+    return this.httpUtil.postHttpCall(url, null, header);
+  }
+
   public createCart(product, accessToken) {
     const me = this;
     let header = { g_access_token: accessToken };
@@ -59,6 +66,14 @@ export class CartService {
     return this.httpUtil.postHttpCall(url, product, header);
   }
 
+  public updateCartAddress(cartId, addressInfo, accessToken) {
+    const me = this;
+    let header = { g_access_token: accessToken };
+    let url = me.parse(me.baseUrl + me.cartPaths.updateaddress, cartId);
+    console.log(url, addressInfo, accessToken);
+    return this.httpUtil.postHttpCall(url, addressInfo, header);
+  }
+
   public parse(...str) {
     var args = [].slice.call(str, 1),
       i = 0;
@@ -66,10 +81,21 @@ export class CartService {
     return str[0].replace(/%s/g, () => args[i++]);
   }
 
+  private _getAccessToken() {
+    return this.cookieService.get("g_access_token");
+  }
+
   public getCart(accessToken) {
     const me = this;
     let header = { g_access_token: accessToken };
     return this.httpUtil.getHttpCall(me.baseUrl + me.cartPaths.newcart, header);
+  }
+
+  public getOrder(cartId) {
+    const me = this;
+    let header = { g_access_token: me._getAccessToken() };
+    let url = me.parse(me.baseUrl + me.cartPaths.getorder, cartId);
+    return this.httpUtil.getHttpCall(url, header);
   }
 
 }
