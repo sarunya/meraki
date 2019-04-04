@@ -254,6 +254,7 @@ class CartService {
         throw "CartIsNotActive";
       } else {
         cart.status = "Ordered";
+        cart.is_active = false;
         cart.order_id = utils.generateId();
         console.log("cart created", JSON.stringify(cart, null, 10));
         return await me.cartAccessor.updateCart(cart);
