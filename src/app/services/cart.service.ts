@@ -98,4 +98,21 @@ export class CartService {
     return this.httpUtil.getHttpCall(url, header);
   }
 
+  public getuserorders() {
+    const me = this;
+    let header = { g_access_token: me._getAccessToken() };
+    let payload = { access_token: header.g_access_token};
+    let url = me.baseUrl + me.cartPaths.getuserorders;
+    console.log(url);
+    return this.httpUtil.postHttpCall(url, payload, header);
+  }
+
+  public getCartItemCount(cart) {
+    let itemCount = 0;
+    for(let item of cart.products) {
+      itemCount += item.quantity;
+    }
+    return itemCount;
+  }
+
 }

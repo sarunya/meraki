@@ -45,6 +45,28 @@ class CartRouteHandler {
         }
     }
 
+    async getOrders(request, reply) {
+        const me = this;
+        try {
+            let service = new CartService(me.dependencies, me.config, request);
+            let result = await service.getOrders(request.body);
+            reply.send(result);
+        } catch (error) {
+            me._replyError(reply, error);
+        }
+    }
+
+    async updateOrderStatus(request, reply) {
+        const me = this;
+        try {
+            let service = new CartService(me.dependencies, me.config, request);
+            let result = await service.updateOrderStatus(request.body);
+            reply.send(result);
+        } catch (error) {
+            me._replyError(reply, error);
+        }
+    }
+
     /**
      * Update Products To existing Cart
      * @param {*} request 

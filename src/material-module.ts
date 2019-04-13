@@ -7,6 +7,8 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import {NgModule} from '@angular/core';
 import {
+  MatFormFieldModule,
+  MatOptionModule,
   MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -41,11 +43,13 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule,
+  MatTreeModule
 } from '@angular/material';
 
 @NgModule({
   exports: [
+    MatOptionModule,
+    MatFormFieldModule,
     A11yModule,
     CdkStepperModule,
     CdkTableModule,
@@ -87,7 +91,7 @@ import {
     MatTooltipModule,
     MatTreeModule,
     PortalModule,
-    ScrollingModule,
+    ScrollingModule
   ]
 })
 export class DemoMaterialModule {}

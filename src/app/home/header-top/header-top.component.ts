@@ -14,6 +14,8 @@ export class HeaderTopComponent implements OnInit {
   userImageUrl:any;
   signIn: any = false;
   userName : any;
+  cartTotalItems: any; 
+
   constructor(ngZone:NgZone, public globals: Globals, private cookieService: CookieService) {
     window['onSignIn'] = (user) => ngZone.run(() => this.onSignIn(user));
 
@@ -52,6 +54,14 @@ export class HeaderTopComponent implements OnInit {
       this.signIn = false;
       this.globals.userDetails = null;
     });
+  }
+
+  receiveCartUpdateEvent(updatedCart) {
+    console.log("updated cart")
+    const me = this;
+    me.cartTotalItems = updatedCart;
+    let element = document.getElementById('itemnosspan');
+    console.log(element, updatedCart);
   }
 
   private toSha512(str) {

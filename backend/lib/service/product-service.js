@@ -80,6 +80,19 @@ class ProductService {
       throw error;
     }
   }
+
+  async createOrupdateProduct(product) {
+    const me = this;
+    try {
+      let existingProduct = me.getProductById(product.id);
+      if(!_.isEmpty(existingProduct)) {
+         return me.productAccessor.update(product);
+      }
+      return me.productAccessor.save(product);
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = ProductService;

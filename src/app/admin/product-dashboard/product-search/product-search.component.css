@@ -1,19 +1,50 @@
 .products {
-    width: 96%;
-    height: 100%;
-    margin: 2%;
-    border: 2px solid teal;
+  width: 96%;
+  /* min-height: 100%; */
+  margin: 2%;
+  border: 2px solid teal;
+  /* displ */
 }
 
 .search_products {
-    height: 100px;
-    border-bottom: 2px solid teal;
+  height: 100px;
+  border-bottom: 2px solid teal;
 }
 
 .selectdiv {
-  float: left;  
+  float: left;
 }
 
 .selectdiv label {
-    border: 2px;
+  border: 2px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 4px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+th {
+  background-color: rgb(187, 224, 248);
+  color: white;
+}
+
+img {
+  max-height: 40px;
+  max-width: 40px;
+}
+
+a:hover {
+  cursor: pointer;
 }

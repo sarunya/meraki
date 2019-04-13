@@ -38,6 +38,7 @@ export class CheckoutComponent implements OnInit {
   allStates = countStateCity.getStatesOfCountry(101);
   filteredStates: Observable<State[]>;
   state;
+  cartItemsCount;
   stateCtrl = new FormControl();
   private sub: Subscription;
 
@@ -48,7 +49,7 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit() {
     this.cart = {};
-    this._getCartDetails();
+    this._getActiveCartDetails();
     this._populateAddressInfo();
 
     //console.log(countStateCity, countStateCity.getStatesOfCountry(101));
@@ -92,7 +93,7 @@ export class CheckoutComponent implements OnInit {
     me.cartService.updateCartAddress(me.cart.id, addressInfo, accessToken).subscribe((res) => {
       console.log(res.body);
       //me.router.navigate(["order-confirmation"]);
-      me._getCartDetails();
+      me._getActiveCartDetails();
       me._populateAddressInfo();
       me.spinnerService.hide();
     }, (err) => {
@@ -103,10 +104,12 @@ export class CheckoutComponent implements OnInit {
   placeOrder() {
     const me = this;
     me.spinnerService.show();
+    // me.router.navigate(["order-confirmation", me.cart.id]);
     me.cartService.placeOrder(me.cart.id).subscribe((res) => {
       console.log(res.body);
-      me._getCartDetails();
+      //me._getOrderByCartId(me.cart.id);
       me.spinnerService.hide();
+      me.router.navigate(["confirmation", me.cart.id]);
     }, (err) => {
       console.log(err);
     })
@@ -124,7 +127,7 @@ export class CheckoutComponent implements OnInit {
       state: "",
       zipcode: ""
     }
-    me.billingInfo = me.shippingInfo;
+    me.billingInfo = Object.create(me.shippingInfo);
     console.log("shippikng_info", me.cart, me.cart.shipping_info)
     if (me.cart.shipping_info) {
       me.shippingInfo = me.cart.shipping_info;
@@ -161,13 +164,25 @@ export class CheckoutComponent implements OnInit {
     console.log(value);
   }
 
-  private _getCartDetails() {
+  private _getOrderByCartId(cartId) {
+    const me = this;
+    me.spinnerService.show();
+    me.cartService.getOrder(cartId).subscribe((res) => {
+      me.cart = res.body;
+      me._populateAddressInfo();
+      me.cartItemsCount = me.cartService.getCartItemCount(me.cart);
+      me.spinnerService.hide();
+    });
+  }
+
+  private _getActiveCartDetails() {
     const me = this;
     me.spinnerService.show();
     let accessToken = me._getAccessToken();
     me.cartService.getCart(accessToken).subscribe((res) => {
       me.cart = res.body;
       me._populateAddressInfo();
+      me.cartItemsCount = me.cartService.getCartItemCount(me.cart);
       me.spinnerService.hide();
     })
   }

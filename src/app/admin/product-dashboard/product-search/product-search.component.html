@@ -4,19 +4,48 @@
     <div class="input_products">
 
       <div class="selectdiv">
-        <label>Product Taxonomy</label>
+        <label>Product Category</label>
           <select>
-              <option *ngFor="let option of ['a','b','c']">{{option}}</option>
+              <option *ngFor="let option of categories">{{option}}</option>
           </select>
       </div>
-
+      
       <input type="text">
       <button>
         Search
       </button>
     </div>
   </div>
-  <div class="product_table">
-
+  <div class="product_table" matSort (matSortChange)="sortData($event)">
+    <table>
+      <tr>
+        <th mat-sort-header="Product Id">
+          Product Id
+        </th>
+        <th mat-sort-header="Category">
+          Category
+        </th>
+        <th mat-sort-header="Title">
+          Title
+        </th>
+        <th>
+          Image
+        </th>
+        <th mat-sort-header="Price">
+          Price
+        </th>
+        <th>
+          Update
+        </th>
+      </tr>
+      <tr *ngFor="let product of sortedProducts;">
+        <td>{{product.id}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.title}}</td>
+        <td><img src="{{product.image}}" alt="Placholder Image 2" class="product-frame"></td>
+        <td>{{product.unit_price}}</td>
+        <td><a routerLink="product/update/{{product.id}}">Edit</a></td>
+      </tr>
+    </table>
   </div>
 </div>

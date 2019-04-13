@@ -36,6 +36,19 @@ class ProductRouteHandler {
         }
     }
 
+    async createOrUpdateProduct(request, reply) {
+        let me = this;
+        let result = null;
+        try {
+            let service = new ProductService(me.dependencies, me.config, request);
+            result = await service.createOrupdateProduct(request.body);
+            reply.send(result);
+        } catch (error) {
+            console.log(error);
+            me._replyError(reply, error);
+        }
+    }
+
     _replyError(reply, error) {
         reply.status(error.statusCode || error.status || 500);
         reply.send(error);

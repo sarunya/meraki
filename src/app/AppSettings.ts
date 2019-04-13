@@ -1,5 +1,5 @@
 export class AppSettings {
-    public static API_ENDPOINT =  'https://merakki.herokuapp.com';//'http://localhost:8080';
+    public static API_ENDPOINT = 'https://merakki.herokuapp.com';//'http://localhost:8080';
     public static GOOGLE_API_ENDPOINT = 'https://www.googleapis.com';
     public static PATHS = {
         products :  {
@@ -10,6 +10,7 @@ export class AppSettings {
             updatecart: "/cart/%s/update",
             updateaddress: "/cart/%s/address",
             placeorder: "/cart/%s/submit",
+            getuserorders: "/order/user",
             getorder: "/order/%s"
         },
         user: {

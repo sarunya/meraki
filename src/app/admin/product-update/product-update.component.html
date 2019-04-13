@@ -1,0 +1,64 @@
+<div class="product-update-form">
+  <br>
+  <div class="input">
+      <label>Product Id </label>
+      <mat-form-field>
+        <input matInput placeholder="Mer___" [(ngModel)]="productdetail.id">
+      </mat-form-field>
+  </div>
+  <div class="input">
+      <label>Product Title </label>
+      <mat-form-field>
+        <input matInput placeholder="Title" [(ngModel)]="productdetail.title">
+      </mat-form-field>
+  </div>
+  <div class="input">
+      <label>Product Category </label>
+      <mat-form-field>
+        <input matInput placeholder="Category" [(ngModel)]="productdetail.rating">
+      </mat-form-field>
+  </div>
+  <div class="input">
+      <label>Product Description </label>
+      <mat-form-field>
+          <textarea matInput placeholder="Description" [(ngModel)]="productdetail.description"></textarea>
+      </mat-form-field>
+  </div>
+  <div class="input">
+      <label>Product Image Url </label>
+      <mat-form-field>
+        <input matInput placeholder="image url" [(ngModel)]="productdetail.image">
+      </mat-form-field>
+  </div>
+  <div class="input">
+      <label>Product Price </label>
+      <mat-form-field>
+        <input matInput placeholder="Rs. UnitPrice" [(ngModel)]="productdetail.unit_price">
+      </mat-form-field>
+  </div>
+  <div class="input">
+      <label>Product Rating </label>
+      <mat-form-field>
+        <input matInput placeholder="Rating" [(ngModel)]="productdetail.rating">
+      </mat-form-field>
+  </div>
+  <div class="input">
+      <label>Float label: </label>
+        <mat-radio-group>
+          <mat-radio-button value="auto">Active</mat-radio-button>
+          <mat-radio-button value="always">Not Active</mat-radio-button>
+        </mat-radio-group>
+    </div>
+  <div class="input">
+    <button mat-raised-button color="primary" (click)="updateProductItem()">Update</button>
+  </div>
+  <!-- <div class="input">
+    <label>Product Description </label>
+    <mat-form-field>
+      <mat-select placeholder="Select">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div> -->
+
+</div>

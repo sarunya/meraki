@@ -15,11 +15,13 @@
         <li class="subtotal">Subtotal</li>
       </ul>
     </div>
-    <app-cart-item *ngFor="let item of cart.products;" [item]="item" [cartId]="cart.id" (cartChangeEvent)="receiveCartUpdateEvent($event)"></app-cart-item>
+    <app-cart-item *ngFor="let item of cart.products;" [item]="item"
+      [cartId]="cart.id" (cartChangeEvent)="receiveCartUpdateEvent($event)"></app-cart-item>
   </div>
   <aside>
     <div class="summary">
-      <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+      <div class="summary-total-items"><span class="total-items"></span> Items
+        in your Bag</div>
       <div class="summary-subtotal">
         <div class="subtotal-title">Subtotal</div>
         <div class="subtotal-value final-value" id="basket-subtotal">{{cart.totalamount}}</div>
@@ -30,9 +32,9 @@
       </div>
       <div class="summary-delivery">
         <select name="delivery-collection" class="summary-delivery-selection">
-            <option value="0" selected="selected">Shipping Method</option>
-           <option value="collection">Pick Up</option>
-           <option value="first-class">Courier</option>
+          <option value="0" selected="selected">Shipping Method</option>
+          <option value="collection">Pick Up</option>
+          <option value="first-class">Courier</option>
         </select>
       </div>
       <div class="summary-total">

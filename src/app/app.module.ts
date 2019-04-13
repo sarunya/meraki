@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderTopComponent } from './home/header-top/header-top.component';
@@ -29,6 +29,12 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import {DemoMaterialModule} from '../material-module';
 import { OrderConfirmationComponent } from './checkout/order-confirmation/order-confirmation.component';
 import { MyordersComponent } from './checkout/myorders/myorders.component';
+import { ProductUpdateComponent } from './admin/product-update/product-update.component';
+import { MyDashboardComponent } from './admin/my-dashboard/my-dashboard.component';
+import { OrderUpdateComponent } from './admin/order-update/order-update.component';
+import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
+import { OrderDashboardComponent } from './admin/order-dashboard/order-dashboard.component';
 
 
 const appRoutes: Routes = [
@@ -38,6 +44,11 @@ const appRoutes: Routes = [
   { path: 'cartdetail', component: CartListComponent },
   { path: 'category', component: CategoriesComponent },
   { path: 'admin', component: ProductSearchComponent },
+  { path: 'admin/order/list', component: OrderDashboardComponent },
+  { path: 'admin/product/list', component: ProductSearchComponent },
+  { path: 'admin/overall/dashboard', component: MyDashboardComponent },
+  { path: 'admin/product/update/:id', component: ProductUpdateComponent },
+  { path: 'admin/order/update/:cartId', component: OrderUpdateComponent},
   { path: 'aboutus', component: AboutusComponent},
   { path: 'checkout', component: CheckoutComponent},
   { path: 'products', component: ProductfilterComponent},
@@ -65,7 +76,11 @@ const appRoutes: Routes = [
     ProductfilterComponent,
     CheckoutComponent,
     OrderConfirmationComponent,
-    MyordersComponent
+    MyordersComponent,
+    ProductUpdateComponent,
+    MyDashboardComponent,
+    OrderDashboardComponent,
+    OrderUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -74,14 +89,21 @@ const appRoutes: Routes = [
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    DemoMaterialModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true,
         scrollPositionRestoration: 'enabled'
       } // <-- debugging purposes only
     ),
-    DemoMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [Globals, CookieService],
   bootstrap: [AppComponent] //[AppComponent, HeaderTopComponent, ProductListComponent]

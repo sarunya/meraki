@@ -5,15 +5,38 @@
     <a>CANCELLED</a>
   </div>
   <div class="orders">
-    <div class="order">
+    <div class="order" *ngFor="let order of orders;">
       <div>
         <div class="order-title">
-          Order #1234  Placed On 24 Oct 2018   Amount Paid : Rs. 5000   Ship To : Sarunya
+          <span class="orderid">
+            <b>Order #{{order.order_id}}</b> Placed On 24 Oct 2018
+          </span>
+          <span>
+            <b>Amount Paid : Rs. {{order.totalamount}}</b>
+          </span>
+          <span>
+            Ship To : {{order.shipping_info.name}}
+          </span>
+          <span>
+            Status : {{order.status}}
+          </span>
         </div>
         <div class="order-items">
-
+          <table>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+            <tr *ngFor="let item of order.products">
+              <td>{{item.title}}</td>
+              <td>{{item.quantity}}</td>
+              <td>{{item.amount}}</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
   </div>
 </div>
+<ng4-loading-spinner> </ng4-loading-spinner>

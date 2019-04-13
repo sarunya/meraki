@@ -74,7 +74,7 @@
       <h4>Cart
         <span class="price" style="color:black">
           <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
+          <b>{{cartItemsCount}}</b>
         </span>
       </h4>
       <p *ngFor="let cartitem of cart.products"><a href="#">{{cartitem.title}}</a> <span class="price">Rs. {{cartitem.amount}}</span></p>

@@ -77,20 +77,14 @@ class CartService {
     }
   }
 
-  async getOrdersByAccessToken(accessToken) {
+  async getOrders(payload) {
     const me = this;
     try {
-        let userInfo = await me._validateAndPopulateUserInfo(accessToken);
-        return await me.cartAccessor.getOrdersByEmail(userInfo.email);
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  async getOrdersByEmail(email) {
-    const me = this;
-    try {
-      return await me.cartAccessor.getOrdersByEmail(email);
+      if(!_.isNil(payload.access_token)) {
+        let userInfo = await me._validateAndPopulateUserInfo(payload.access_token);
+        payload.email = userInfo.email;
+      }
+      return await me.cartAccessor.getOrdersByEmail(payload.email);
     } catch (error) {
       throw error;
     }
@@ -113,6 +107,23 @@ class CartService {
       cart = cart[0].data;
       cart.shipping_info = addressInfo.shipping_info;
       cart.billing_info = addressInfo.billing_info;
+      return await me.cartAccessor.updateCart(cart);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateOrderStatus(payload) {
+    const me = this;
+    try {
+      let cart = await me.getOrderByCartId(payload.cart_id);
+      cart.history_status = (cart.history_status)?cart.history_status:[];
+      cart.history_status.push({
+        internal_status: payload.internal_status,
+        user_status: payload.user_status,
+        description : payload.description
+      })
+      cart.status = payload.user_status;
       return await me.cartAccessor.updateCart(cart);
     } catch (error) {
       throw error;

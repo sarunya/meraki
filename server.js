@@ -1,3 +1,4 @@
+// var njstrace = require('../../Automation/njsTrace').inject();
 const express = require('express')
 const app = express();
 var session = require('express-session');
@@ -9,6 +10,7 @@ const db = require('./backend/lib/data-access/pgp').db;
 const ProductRouteHandler = require('./backend/lib/route-handler/product-route-handler');
 const CartRouteHandler = require('./backend/lib/route-handler/cart-route-handler');
 const defaultConfig = require('./backend/config/local-config.json');
+
 
 function start() {
   let cwd = process.cwd();
@@ -52,6 +54,10 @@ function start() {
     return productRouteHandler.getProductById(req, res);
   })
 
+  app.put('/product/update', (req, res) => {
+    return productRouteHandler.createOrUpdateProduct(req, res);
+  })
+
   app.post('/cart', (req, res, next) => {
     return cartRouteHandler.createCart(req, res);
   })
@@ -78,6 +84,14 @@ function start() {
 
   app.get('/order/:cartid', (req, res) => {
     return cartRouteHandler.getOrderByCartId(req, res);
+  })
+
+  app.put('/order/status', (req, res) => {
+    return cartRouteHandler.updateOrderStatus(req, res);
+  })
+
+  app.post('/order/user', (req, res) => {
+    return cartRouteHandler.getOrders(req, res);
   })
 
   app.get('*', function(req,res) {
